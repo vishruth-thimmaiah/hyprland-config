@@ -1,0 +1,97 @@
+#!/bin/bash
+
+## Get data
+STATUS="$(playerctl --player spotify status 2>&1)"
+COVER="/tmp/.music_cover.jpg"
+
+## Get status
+get_status() {
+	if [[ $STATUS == *"Playing"* ]]; then
+		echo ""
+	else
+		echo ""
+	fi
+}
+
+## Get song
+get_song() {
+	song=$(playerctl --player spotify metadata --format '{{title}}')
+	if [[ -z "$song" ]]; then
+		echo "Offline"
+	else
+		length=${#song}
+		if [[ $length -lt 19 ]]; then
+			echo "$song"
+		else
+			echo "${song:0:19} ..."
+		fi
+	fi	
+}
+
+## Get artist
+get_artist() {
+	artist=$(playerctl --player spotify metadata --format '{{artist}}')
+	if [[ -z "$artist" ]]; then
+		echo ""
+	else
+		echo "$artist"
+	fi	
+}
+
+## Get time
+get_ttime() {
+	ttimem=$(playerctl --player spotify metadata --format '{{mpris:length}}')
+	ttime=$((ttimem/1000000))
+	if [[ -z "$ttime" ]]; then
+		echo "0"
+	else
+		echo "$ttime"
+	fi	
+}
+get_ctime() {
+	ctime=$(mpc status | grep "#" | awk '{print $3}' | sed 's|/.*||g')
+	if [[ -z "$ctime" ]]; then
+		echo "0:00"
+	else
+		echo "$ctime"not equal to bash strings
+	fi	
+}
+get_time() {
+	time=$(playerctl --player spotify position)
+	if [[ -z "$time" ]]; then
+		echo "0:00"
+	else
+		echo "$time"
+	fi
+}
+
+## Get cover
+get_cover() {
+	if [[ "$STATUS" == *"Playing"* ]];then
+		wget -4 $(spoty art) -q -O $COVER
+		echo "$COVER"
+	else
+		echo "images/music.png"
+	fi
+}
+
+## Execute accordingly
+if [[ "$1" == "--song" ]]; then
+	get_song
+elif [[ "$1" == "--artist" ]]; then
+	get_artist
+elif [[ "$1" == "--status" ]]; then
+	get_status
+elif [[ "$1" == "--time" ]]; then
+	get_time
+elif [[ "$1" == "--ttime" ]]; then
+	get_ttime
+elif [[ "$1" == "--cover" ]]; then
+	get_cover
+elif [[ "$1" == "--toggle" ]]; then
+	playerctl --player spotify play-pause
+elif [[ "$1" == "--next" ]]; then
+	{ playerctl --player spotify next; get_cover; }
+elif [[ "$1" == "--prev" ]]; then
+	{ playerctl --player spotify previous; get_cover; }
+fi

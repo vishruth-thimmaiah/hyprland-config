@@ -1,0 +1,11 @@
+#!/bin/bash
+
+while true; do
+	power="$(cat /sys/class/power_supply/BAT1/capacity)"
+	stat="$(acpi --ac-adapter | cut -d ":" -f 2 | xargs)"
+
+	if [[ $power -lt 15 && $stat == "off-line" ]]; then
+		hyprctl notify 6 10000 "rgb(349387)" "Battery is Low ($power%)";
+	fi
+	sleep 20
+done
