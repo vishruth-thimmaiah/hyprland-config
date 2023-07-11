@@ -22,9 +22,11 @@
 * **cliphist**
 * **bright**
 
-For weather info, rename eww/dashboard/apis.sample.sh to rename eww/dashboard/apis.sh and add openweather api and city to the file.
+For weather info, rename eww/dashboard/apis.sample.sh to eww/dashboard/apis.sh and add openweather api and city to the file.
 
 #### Optional
 
 * **polkit-gnome** and **gnome-keying**
+
+#### Note: This config has been tested only on Arch Linux
 
