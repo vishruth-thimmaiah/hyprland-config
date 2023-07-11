@@ -4,7 +4,7 @@
 
 ### [Eww](https://github.com/elkowar/eww "Eww")
 
-![image](hypr/screenshots/desktop1.png)
+![image](hypr/screenshots/desktop.png)
 
 ### References
 
