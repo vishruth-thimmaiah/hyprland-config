@@ -1,7 +1,7 @@
 ignore-empty-password
 font=Ubuntu
 
-image=/home/vishr/.local/share/backgrounds/aWallpaper.png
+image=~/.config/hypr/backgrounds/lock.png
 
 indicator-radius=80
 indicator-thickness=20
