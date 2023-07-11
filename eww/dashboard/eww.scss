@@ -248,15 +248,13 @@
 .app_vbox {}
 
 /** Links ***************************************/
-.iconweb, .iconmail {
+.iconweb {
 	color: #FFFFFF;
 	font-family: FiraMono Nerd Font Mono;
 	font-size : 70px;
 	font-weight : normal;
 }
-.iconmail {
-	color: #DF584E;
-}
+
 
 .github {
 	background-color: #24292E;
@@ -274,22 +272,7 @@
 	background-color: #DF584E;
 	border-radius: 16px;
 }
-.mail {
-	background-color: #FFFFFF;
-	border-radius: 16px;
-}
 
-.mailbox {
-	background-color: #E5E5E5;
-	border-radius: 10px;
-	margin: 48px 0px 48px 0px;
-}
-.label_mails {
-	color: #404040;
-	font-size : 32px;
-	font-weight : bold;
-	margin: 0px 12px 0px 12px;
-}
 
 /** Calendar *****************************************/
 .cal-box {

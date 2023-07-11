@@ -68,7 +68,7 @@ get_time() {
 ## Get cover
 get_cover() {
 	if [[ "$STATUS" == *"Playing"* ]];then
-		wget -4 $(spoty art) -q -O $COVER
+		wget -4 "$(playerctl --player spotify metadata --format '{{mpris:artUrl}}')" -q -O $COVER
 		echo "$COVER"
 	else
 		echo "images/music.png"

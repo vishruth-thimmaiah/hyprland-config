@@ -37,9 +37,6 @@
 ;; (defpoll QUOTE :interval "15m" `scripts/weather_info --quote`)
 ;; (defpoll QUOTE2 :interval "15m" `scripts/weather_info --quote2`)
 
-;; Apps vars
-(defpoll MAILS :interval "5m" `scripts/mails`)
-
 ;; Files vars
 (defpoll FREE :interval "5s" `df -h / | awk '{print $4}' | tail -n 1 | sed 's/G/GB/'`)
 (defpoll FREE_USER :interval "5s" `df -h /home | awk '{print $4}' | tail -n 1 | sed 's/G/GB/'`)
@@ -133,14 +130,6 @@
 (defwidget youtube [] 
 	(box :class "youtube" :vexpand "false" :hexpand "false" 
 		(button :class "iconweb" :onclick "scripts/open_links --yt" "")))
-
-;; mail
-(defwidget mail [] 
-	(box :class "mail" 
-		(box :orientation "h" :halign "center" :spacing 20 :space-evenly "false" :vexpand "false" :hexpand "false" 
-			(button :class "iconmail" :onclick "scripts/open_links --mail" "")
-			(box :class "mailbox" :space-evenly "false" :vexpand "false" :hexpand "false" 
-				(button :class "label_mails" :onclick "scripts/open_links --mail" MAILS)))))
 
 ;; weather
 (defwidget weather [] 
@@ -280,13 +269,13 @@
 
 ;; clock
 (defwindow clock :stacking "fg" :focusable "false" :screen 1 
-	    :geometry (geometry :x 515 :y 150 :width 350 :height 155)
+	    :geometry (geometry :x 515 :y 150 :width 400 :height 155)
 		:monitor 0
 					(clock))
 
 ;; uptime
 (defwindow uptime :stacking "fg" :focusable "false" :screen 1 
-	    :geometry (geometry :x 515 :y 320 :width 390 :height 155)
+	    :geometry (geometry :x 515 :y 320 :width 400 :height 160)
 		:monitor 0
 					(uptime))
 
@@ -326,33 +315,27 @@
 		:monitor 0
 					(apps))
 
-;; mail
-(defwindow mail :stacking "fg" :focusable "false" :screen 1 
-	    :geometry (geometry :x 1140 :y 785 :width 290 :height 145)
-		:monitor 0
-					(mail))
-
 ;; logout
 (defwindow logout :stacking "fg" :focusable "false" :screen 1 
-	    :geometry (geometry :x 930 :y 410 :width 70 :height 70)
+	    :geometry (geometry :x 930 :y 410 :width 85 :height 70)
 		:monitor 0
 					(logout))
 
 ;; sleep
 (defwindow sleep :stacking "fg" :focusable "false" :screen 1 
-	    :geometry (geometry :x 1040 :y 410 :width 70 :height 70)
+	    :geometry (geometry :x 1035 :y 410 :width 85 :height 70)
 		:monitor 0
 					(sleep))
 
 ;; reboot
 (defwindow reboot :stacking "fg" :focusable "false" :screen 1 
-	    :geometry (geometry :x 1150 :y 410 :width 70 :height 70)
+	    :geometry (geometry :x 1140 :y 410 :width 85 :height 70)
 		:monitor 0
 					(reboot))
 
 ;; poweroff
 (defwindow poweroff :stacking "fg" :focusable "false" :screen 1 
-	    :geometry (geometry :x 1260 :y 410 :width 70 :height 70)
+	    :geometry (geometry :x 1245 :y 410 :width 85 :height 70)
 		:monitor 0
 		(poweroff))
 
