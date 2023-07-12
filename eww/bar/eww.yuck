@@ -1,4 +1,3 @@
-
 (defvar eww "/usr/bin/eww -c $HOME/.config/eww/bar")
 
 
@@ -132,7 +131,7 @@
 			  :orientation "v"
 			  :flipped true
 			  :tooltip "Volume: ${current-volume}%"
-			  :max 101
+			  :max 100
 			  :min 0
 			  :onchange "amixer -D pulse sset Master {}%" ))
 	(button   :onclick "scripts/popup audio"   :class volumestat ""))))

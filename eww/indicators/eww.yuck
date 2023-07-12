@@ -1,0 +1,66 @@
+
+
+;;----------------------------------------------------------Variables
+
+(defpoll volumeInfo :interval  "1s" "amixer -D pulse sget Master | grep 'Left:' | awk -F'[][]' '{ print $2 }' | tr -d '%'")
+(defpoll volumeStat :interval "1s" "amixer -D pulse sget Master | grep 'Left:' | cut -d [ -f 3 | tr -d ]")
+
+
+(defpoll brightnessInfo :interval  "1s" "light")
+
+;;-------------------------------------------------------------Volume
+
+(defwidget volume []
+	(box
+		:class "main"
+		:orientation "v"
+		(label
+			:class "vol"
+			:text { volumeStat == "on" ? "" : "" } 
+		)
+		(scale
+			:class "volbar"
+			:value { volumeStat == "on" ? volumeInfo : 0 }
+			:orientation "h"
+			:max 100
+			:min 0
+			:onchange "amixer -D pulse sset Master {}%"
+		)
+	)
+)
+
+;;-------------------------------------------------------------Volume
+
+(defwidget brightness []
+	(box
+		:class "main"
+		:orientation "v"
+		(label
+			:class "bright"
+			:text "󰃠" 
+		)
+		(scale
+			:class "brightbar"
+			:value brightnessInfo
+			:orientation "h"
+			:max 100
+			:min 0
+			:onchange "light -S {}"
+		)
+	)
+)
+
+;;------------------------------------------------------------Windows
+
+;; volume
+(defwindow vol :stacking "fg" :focusable "false" :screen 1
+	:geometry (geometry :x 820 :y 30 :width 200 :height 100)
+	:monitor 0
+	(volume)
+)
+;; brighness
+(defwindow bright :stacking "fg" :focusable "false" :screen 1
+	:geometry (geometry :x 820 :y 30 :width 200 :height 100)
+	:monitor 0
+	(brightness)
+)

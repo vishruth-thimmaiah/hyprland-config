@@ -1,0 +1,20 @@
+#!/bin/bash
+
+if [[ $1 == commit ]]; then
+	git --git-dir="$HOME/.config/dotfiles/hypr" --work-tree="$HOME/.config" add "$HOME/.config/eww/" 
+	git --git-dir="$HOME/.config/dotfiles/hypr" --work-tree="$HOME/.config" add "$HOME/.config/hypr/"
+	git --git-dir="$HOME/.config/dotfiles/hypr" --work-tree="$HOME/.config/hypr" add "$HOME/.config/hypr/README.md"
+	git --git-dir="$HOME/.config/dotfiles/hypr" --work-tree="$HOME/.config/" add "$HOME/.config/swaylock/config"
+	git --git-dir="$HOME/.config/dotfiles/hypr" --work-tree="$HOME/.config/" add "$HOME/.config/dunst/dunstrc"
+	if [[ "$2" ]]; then
+		git --git-dir="$HOME/.config/dotfiles/hypr" --work-tree="$HOME/.config" commit -m "$2"
+	else
+		git --git-dir="$HOME/.config/dotfiles/hypr" --work-tree="$HOME/.config" commit
+	fi
+elif [[ $1 == push ]]; then
+	git --git-dir="$HOME/.config/dotfiles/hypr" --work-tree="$HOME/.config" push
+elif [[ $1 == add ]]; then
+	git --git-dir="$HOME/.config/dotfiles/hypr" --work-tree="$HOME/.config/" add "$2"
+else
+	git --git-dir="$HOME/.config/dotfiles/hypr" --work-tree="$HOME/.config" "$1"
+fi

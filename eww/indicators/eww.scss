@@ -1,0 +1,27 @@
+*{
+	all: unset;
+	font-family: FiraMono Nerd Font Mono;
+	font-size: 80px;
+}
+
+.main {
+	border-radius: 10px;
+	background-color: #16161E;
+}
+
+scale trough {
+	background-color: #24283B;
+	border-radius: 10px;
+	min-height: 10px;
+	min-width: 100px;
+	margin: 10px;
+}
+
+.volbar trough highlight {
+	background-color: #53DA78;
+	border-radius: 10px;
+}
+.brightbar trough highlight {
+	background-color: #53DA78;
+	border-radius: 10px;
+}

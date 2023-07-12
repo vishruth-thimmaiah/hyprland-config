@@ -2,7 +2,6 @@
 
 ## Get data
 STATUS="$(playerctl --player spotify status 2>&1)"
-COVER="/tmp/.music_cover.jpg"
 
 ## Get status
 get_status() {
@@ -68,8 +67,10 @@ get_time() {
 ## Get cover
 get_cover() {
 	if [[ "$STATUS" == *"Playing"* ]];then
-		wget -4 "$(playerctl --player spotify metadata --format '{{mpris:artUrl}}')" -q -O $COVER
-		echo "$COVER"
+		cover="$(playerctl --player spotify metadata --format '{{mpris:artUrl}}')"
+		filePath="/tmp/$(echo "$cover" | cut -d / -f 5 )"
+		[[ ! -f "$filePath" ]] && wget -4 "$cover" -q -O "$filePath"
+		echo "$filePath"
 	else
 		echo "images/music.png"
 	fi

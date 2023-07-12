@@ -2,7 +2,7 @@
 ;; Profile vars
 (defvar IMAGE "images/profile.png")
 (defvar NAME "VIHRUTH THIMMAIAH")
-(defpoll UNAME :interval "5m" `whoami`)
+(defpoll UNAME :interval "30m" `whoami`)
 
 ;; System vars
 (defpoll HOST :interval "5s" `hostname`)
