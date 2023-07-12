@@ -8,6 +8,7 @@ CFG="$HOME/.config/eww/indicators"
 if [[ "$1" == vol ]]; then
 	## Launch or close widgets accordingly
 	touch "$VFILE"
+	eww --config "$CFG" close bright
 	eww --config "$CFG" open vol
 	volI="$( amixer -D pulse sget Master | grep 'Left:' | awk -F'[][]' '{ print $2 }' | tr -d '%')"
 	eww --config "$CFG" update volumeInfo="$volI"
@@ -20,6 +21,7 @@ if [[ "$1" == vol ]]; then
 elif [[ "$1" == bright ]]; then
 	## Launch or close widgets accordingly
 	touch "$BFILE"
+	eww --config "$CFG" close vol
 	eww --config "$CFG" open bright
 	brightI="$(light)"
 	eww --config "$CFG" update brightnessInfo="$brightI"
