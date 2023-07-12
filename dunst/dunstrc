@@ -29,8 +29,8 @@
     # The maximum height of a single notification, excluding the frame.
     height = 300
 
-    # Position the notification in the top right corner
-    origin = top-left
+    # Position the notification in the bottom left corner
+    origin = bottom-left
 
     # Offset from the origin
     offset = 3x3
@@ -64,7 +64,7 @@
     progress_bar_corner_radius = 3
 
     # Corner radius for the icon image.
-    icon_corner_radius = 5
+    icon_corner_radius = 10
 
     # Show how many messages are currently hidden (because of
     # notification_limit).
@@ -250,7 +250,7 @@
     # corners.
     # The radius will be automatically lowered if it exceeds half of the
     # notification height to avoid clipping text and/or icons.
-    corner_radius = 5
+    corner_radius = 10
 
     # Ignore the dbus closeNotification message.
     # Useful to enforce the timeout set by dunst configuration. Without this

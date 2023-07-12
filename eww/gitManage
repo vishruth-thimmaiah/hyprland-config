@@ -1,6 +1,12 @@
 #!/bin/bash
 
 if [[ $1 == commit ]]; then
+	if [[ "$2" ]]; then
+		git --git-dir="$HOME/.config/dotfiles/hypr" --work-tree="$HOME/.config" commit -m "$2"
+	else
+		git --git-dir="$HOME/.config/dotfiles/hypr" --work-tree="$HOME/.config" commit
+	fi 
+elif [[ $1 == commitall ]]; then
 	git --git-dir="$HOME/.config/dotfiles/hypr" --work-tree="$HOME/.config" add "$HOME/.config/eww/" 
 	git --git-dir="$HOME/.config/dotfiles/hypr" --work-tree="$HOME/.config" add "$HOME/.config/hypr/"
 	git --git-dir="$HOME/.config/dotfiles/hypr" --work-tree="$HOME/.config/hypr" add "$HOME/.config/hypr/README.md"
