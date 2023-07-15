@@ -275,55 +275,37 @@
 
 
 /** Calendar *****************************************/
-.cal-box {
-	background-color: #565656;
-	font-family: "FiraMono Nerd Font Mono";
-	font-size: 30px;
-	font-weight: bold;
-
-	.cal-inner-box {
+calendar{
+	&:selected {
 		font-size: 30px;
-		padding: 10px 10px 10px 10px;
-
-		.cal {
-			&.highlight {
-				padding: 20px;
-			}
-
-			padding: 10px;
-			margin-left: 10px;
-		}
+		color: #7AA2F7;
 	}
-}
+	&.header {
+		font-size: 100px;
+		color: #BF616A;
+		font-weight: bold;
+	}
 
-calendar:selected {
-	font-size: 30px;
-	color: #7AA2F7;
-}
+	&.button {
+		font-size: 30px;
+		color: #BF616A;
+	}
 
-calendar.header {
+	&.highlight {
+		font-size: 30px;
+		color:  #BB9AF7;
+		font-weight: bold;
+	}
+
+	&:indeterminate {
+		font-size: 30px;
+		color: #16161E;;
+	}
 	font-family: "FiraMono Nerd Font Mono";
-	font-size: 100px;
-	color: #BF616A;
 	font-weight: bold;
+	font-size: 20px;
+	padding: 6px 7px 7px 7px;
 }
-
-calendar.button {
-	font-size: 30px;
-	color: #BF616A;
-}
-
-calendar.highlight {
-	font-size: 30px;
-	color:  #BB9AF7;
-	font-weight: bold;
-}
-
-calendar:indeterminate {
-	font-size: 30px;
-	color: #16161E;;
-}
-
 
 /** Power buttons ***************************************/
 .btn_logout, .btn_sleep, .btn_reboot, .btn_poweroff {
