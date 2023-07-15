@@ -1,7 +1,7 @@
 #!/bin/bash
 
 VFILE="$HOME/.cache/eww_launch.volume"
-BFILE="$HOME/.cache/eww_launch.volume"
+BFILE="$HOME/.cache/eww_launch.bright"
 CFG="$HOME/.config/eww/indicators"
 
 ## Open widgets
@@ -18,6 +18,7 @@ if [[ "$1" == vol ]]; then
 		eww --config "$CFG" close vol
 		rm "$VFILE"
 	fi
+
 elif [[ "$1" == bright ]]; then
 	## Launch or close widgets accordingly
 	touch "$BFILE"

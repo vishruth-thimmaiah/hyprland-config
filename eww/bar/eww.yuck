@@ -58,6 +58,8 @@
 
 
 ;; Battery Widgets ;;
+(defpoll battery :interval "1s"	"scripts/battery percent")
+(defpoll batteryColor :interval "1s" "scripts/battery color")
 (defwidget bat []
 	(box 
 		:class "bat_module" 
@@ -78,8 +80,6 @@
 			)
 		)
 	)
-(defpoll battery :interval "1s"	"scripts/battery percent")
-(defpoll batteryColor :interval "1s" "scripts/battery color")
 
 
 ;; Wifi Widgets ;;

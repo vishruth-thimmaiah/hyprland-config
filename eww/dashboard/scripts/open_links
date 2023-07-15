@@ -23,7 +23,7 @@ elif [[ "$1" == "--rd" ]]; then
 	close_dash && ${cmd} "https://reddit.com"
 
 elif [[ "$1" == "--tw" ]]; then
-	close_dash && ${cmd} "https://whatsapp.com"
+	close_dash && ${cmd} "https://web.whatsapp.com"
 
 elif [[ "$1" == "--yt" ]]; then
 	close_dash && ${cmd} "https://youtube.com"

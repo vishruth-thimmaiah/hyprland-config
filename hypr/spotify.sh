@@ -2,7 +2,6 @@
 
 advert=false
 volume=1
-oldsong=""
 while true;do
 	song=$(playerctl --player spotify metadata --format '{{title}}')
 	if [[ -z "$song" ]]; then
@@ -18,11 +17,6 @@ while true;do
 			playerctl --player spotify volume "$volume"
 			advert=false
 		fi
-		# if [[ "$song" != "$oldsong" ]]; then
-		# 	wget -4 "$(spoty art)" -q -O /tmp/.music_cover.jpg
-		# 	oldsong="$song"
-		# fi
-			
 	fi
 	sleep 1;
 done
