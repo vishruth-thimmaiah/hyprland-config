@@ -1,5 +1,3 @@
-
-
 ;;----------------------------------------------------------Variables
 
 (defpoll volumeInfo :interval  "1s" "amixer -D pulse sget Master | grep 'Left:' | awk -F'[][]' '{ print $2 }' | tr -d '%'")
@@ -12,8 +10,10 @@
 
 (defwidget volume []
 	(box
+		:halign "center"
 		:class "main"
-		:orientation "v"
+		:space-evenly "false" 
+		:orientation "h"
 		(label
 			:class "vol"
 			:text { volumeStat == "on" ? "" : "" } 
@@ -33,11 +33,13 @@
 
 (defwidget brightness []
 	(box
+		:halign "center"
 		:class "main"
-		:orientation "v"
+		:space-evenly "false" 
+		:orientation "h"
 		(label
 			:class "bright"
-			:text "󰃠" 
+			:text "" 
 		)
 		(scale
 			:class "brightbar"
@@ -54,13 +56,13 @@
 
 ;; volume
 (defwindow vol :stacking "fg" :focusable "false" :screen 1
-	:geometry (geometry :x 820 :y 30 :width 200 :height 100)
+	:geometry (geometry :x 0 :y 20 :anchor "top center" :width 100 :height 100)
 	:monitor 0
 	(volume)
 )
 ;; brighness
 (defwindow bright :stacking "fg" :focusable "false" :screen 1
-	:geometry (geometry :x 820 :y 30 :width 200 :height 100)
+	:geometry (geometry :x 0 :y 20 :anchor "top center" :width 100 :height 100)
 	:monitor 0
 	(brightness)
 )

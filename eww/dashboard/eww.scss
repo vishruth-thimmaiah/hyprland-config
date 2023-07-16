@@ -1,5 +1,19 @@
 /** Global *******************************************/
 
+// Variable Color's
+$background: #24283B;
+$foreground: #A9B1D6;
+
+$black: #1C1D29;
+$gray: #282C3F;
+$red: #F7768E;
+$green: #73DACA;
+$green2: #53DA78;
+$yellow: #E0AF68;
+$blue: #7AA2F7;
+$magenta: #BB9AF7;
+$cyan: #7DCFFF;
+$white: #FFFFFF;
 
 *{
 	all: unset;
@@ -8,15 +22,12 @@
 
 /** Background ***************************************/
 .bg {
-	// background-image: url("images/bg.png");
-	// background-size: cover;
-	// background-color: #474D59;
 	opacity: 1;
 }
 
 /** Generic window ***********************************/
 .genwin {
-	background-color: #2E3440;
+	background-color: $background;
 	border-radius: 16px;
 	// padding: 10px;
 }
@@ -31,13 +42,13 @@
 }
 
 .fullname {
-	color: #D46389;
+	color: $red;
 	font-size : 30px;
 	font-weight : bold;
 }
 
 .username {
-	color: #8FBCBB;
+	color: $cyan;
 	font-size : 22px;
 	font-weight : bold;
 	margin : -15px 0px 0px 0px;
@@ -45,57 +56,31 @@
 
 /** System ********************************************/
 .iconcpu, .iconmem, .icontemp, .iconbat {
-	padding: 0px 0px 0px 5px;
-	font-size : 32px;
-	font-weight : normal;
+	background-color: $gray;
 }
 .labelcpu, .labelmem, .labeltemp, .labelbat {
-	padding: 0px 5px 0px 0px;
-	font-size : 25px;
+	padding: 20px 20px 20px 20px;
+	font-size : 62px;
+	margin: 15px;
 	font-weight : bold;
 }
 .iconcpu, .labelcpu {
-	color: #BF616A;
+	color: $red;
 }
 .iconmem, .labelmem {
-	color: #A3BE8C;
+	color: $green;
 }
 .icontemp, .labeltemp {
-	color: #EBCB8B;
+	color: $yellow;
 }
 .iconbat, .labelbat {
-	color: #88C0D0;
+	color: $cyan;
 }
 
-.cpu_bar, .mem_bar, .temp_bar, .bat_bar, scale trough {
-	all: unset;
-	background-color: #3A404C;
-	border-radius: 8px;
-	min-height: 28px;
-	min-width: 222px;
-}
-
-.cpu_bar, .mem_bar, .temp_bar, .bat_bar, scale trough highlight {
-	all: unset;
-	border-radius: 8px;
-}
-
-.cpu_bar scale trough highlight {
-	background-color: #BF616A;
-}
-.mem_bar scale trough highlight {
-	background-color: #A3BE8C;
-}
-.temp_bar scale trough highlight {
-	background-color: #EBCB8B;
-}
-.bat_bar scale trough highlight {
-	background-color: #88C0D0;
-}
 
 /** Clock ********************************************/
 .time_hour, .time_min {
-	color: #81A1C1;
+	color: $blue;
 	font-size : 70px;
 	font-weight : bold;
 }
@@ -107,14 +92,14 @@
 }
 
 .time_mer {
-	color: #A3BE8C;
+	color: $green;
 	font-size : 40px;
 	font-weight : bold;
 	margin : 20px 10px 0px 0px;
 }
 
 .time_day {
-	color: #EBCB8B;
+	color: $yellow;
 	font-size : 30px;
 	font-weight : normal;
 	margin : 0px 10px 20px -20px;
@@ -122,19 +107,19 @@
 
 /** Uptime ********************************************/
 .icontimer {
-	color: #B48EAD;
+	color: $magenta;
 	font-size : 90px;
 	font-weight : normal;
 }
 
 .uphour {
-	color: #E5E9F0;
+	color: $foreground;
 	font-size : 42px;
 	font-weight : bold;
 }
 
 .upmin {
-	color: #E5E9F0;
+	color: $foreground;
 	font-size : 32px;
 	font-weight : bold;
 }
@@ -149,14 +134,14 @@
 }
 
 .song {
-	color: #8FBCBB;
+	color: $blue;
 	font-size : 24px;
 	font-weight : bold;
 	margin : 40px 0px 0px 0px;
 }
 
 .artist {
-	color: #EBCB8B;
+	color: $yellow;
 	font-size : 16px;
 	font-weight : normal;
 	margin : 0px 0px 15px 0px;
@@ -166,29 +151,29 @@
 	font-family: FiraMono Nerd Font Mono;
 }
 .btn_prev {
-	color: #EBCB8B;
+	color: $yellow;
 	font-size : 32px;
 	font-weight : normal;
 }
 .btn_play {
-	color: #A3BE8C;
+	color: $green;
 	font-size : 48px;
 	font-weight : bold;
 }
 .btn_next {
-	color: #EBCB8B;
+	color: $yellow;
 	font-size : 32px;
 	font-weight : normal;
 }
 
 .music_bar scale trough highlight {
 	all: unset;
-	background-color: #B48EAD;
+	background-color: $magenta;
 	border-radius: 8px;
 }
 .music_bar scale trough {
 	all: unset;
-	background-color: #3A404C;
+	background-color: $gray;
 	border-radius: 8px;
 	min-height: 20px;
 	min-width: 310px;
@@ -204,21 +189,21 @@
 }
 
 .label_temp {
-	color : #A6D1DD;
+	color : $cyan;
 	font-size : 80px;
 	font-weight : bold;
 	margin: 0px 0px 0px 10px;
 }
 
 .label_stat {
-	color : #BF616A;
+	color : $red;
 	font-size : 38px;
 	font-weight : bold;
 	margin: 0px 0px 0px 10px;
 }
 
 .label_quote {
-	color : #E5E5E5;
+	color : $foreground;
 	font-size : 18px;
 	font-weight : normal;
 }
@@ -249,7 +234,7 @@
 
 /** Links ***************************************/
 .iconweb {
-	color: #FFFFFF;
+	color: $white;
 	font-family: FiraMono Nerd Font Mono;
 	font-size : 70px;
 	font-weight : normal;
@@ -278,22 +263,22 @@
 calendar{
 	&:selected {
 		font-size: 30px;
-		color: #7AA2F7;
+		color: $blue;
 	}
 	&.header {
 		font-size: 100px;
-		color: #BF616A;
+		color: $red;
 		font-weight: bold;
 	}
 
 	&.button {
 		font-size: 30px;
-		color: #BF616A;
+		color: $red;
 	}
 
 	&.highlight {
 		font-size: 30px;
-		color:  #BB9AF7;
+		color:  $magenta;
 		font-weight: bold;
 	}
 
@@ -314,39 +299,39 @@ calendar{
 }
 
 .btn_logout {
-	color: #BF616A;
+	color: $red;
 }
 .btn_sleep {
-	color: #A3BE8C;
+	color: $green;
 }
 .btn_reboot {
-	color: #EBCB8B;
+	color: $yellow;
 }
 .btn_poweroff {
-	color: #88C0D0;
+	color: $cyan;
 }
 
 /** Home folders ***************************************/
 .hddbox {
-	background-color: #3A404C;
+	background-color: $gray;
 	border-radius: 10px;
 	margin : 15px;
 }
 .hddicon {
-	color: #81A1C1;
+	color: $blue;
 	font-family: FiraMono Nerd Font Mono;
 	font-size : 70px;
 	font-weight : normal;
 	margin : 25px 20px 25px 40px;
 }
 .hdd_label {
-	color: #E5E9F0;
+	color: $foreground;
 	font-size : 48px;
 	font-weight : bold;
 	margin : 0px 0px 0px 15px;
 }
 .fs_sep {
-	color: #2E3440;
+	color: $background;
 	font-size : 36px;
 	font-weight : bold;
 }
@@ -358,22 +343,22 @@ calendar{
 	margin : 0px 0px 0px 75px;
 }
 .iconfolder1 {
-	color: #BF616A;
+	color: $red;
 }
 .iconfolder2 {
-	color: #A3BE8C;
+	color: $green;
 }
 .iconfolder3 {
-	color: #EBCB8B;
+	color: $yellow;
 }
 .iconfolder4 {
-	color: #81A1C1;
+	color: $blue;
 }
 .iconfolder5 {
-	color: #B48EAD;
+	color: $magenta;
 }
 .iconfolder6 {
-	color: #88C0D0;
+	color: $cyan;
 }
 
 .label_folder1, .label_folder2, .label_folder3, .label_folder4, .label_folder5, .label_folder6  {
@@ -382,22 +367,22 @@ calendar{
 	margin : 0px 0px 0px 30px;
 }
 .label_folder1 {
-	color: #BF616A;
+	color: $red;
 }
 .label_folder2 {
-	color: #A3BE8C;
+	color: $green;
 }
 .label_folder3 {
-	color: #EBCB8B;
+	color: $yellow;
 }
 .label_folder4 {
-	color: #81A1C1;
+	color: $blue;
 }
 .label_folder5 {
-	color: #B48EAD;
+	color: $magenta;
 }
 .label_folder6 {
-	color: #88C0D0;
+	color: $cyan;
 }
 
 /** EOF *************************************************/

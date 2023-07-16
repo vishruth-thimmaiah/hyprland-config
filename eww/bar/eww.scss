@@ -7,7 +7,7 @@
 $background: #16161E;
 $foreground: #A9B1D6;
 
-$black: #1A1B26;
+$black: #1C1D29;
 $gray: #24283B;
 $red: #F7768E;
 $green: #73DACA;
@@ -34,7 +34,7 @@ $white: $foreground;
 
 // tooltip
 tooltip.background {
-	background-color: #0f0f17;
+	background-color: $background;
 	font-size: 18;
 	border-radius: 10px;
 	color: $white;
@@ -50,7 +50,7 @@ tooltip.background {
 
 .0 , .01, .02, .03, .04, .05, .06,
 .011, .022, .033, .044, .055, .066{
-	margin: .5rem 0 .5rem 0;
+	margin: 4px 0 4px 0;
 }
 
 /* Unoccupied */
@@ -70,13 +70,13 @@ tooltip.background {
 
 // Control Panel
 .control {
-	margin: .2rem .2rem .1rem .2rem;
-	font-family: "FiraMono Nerd Font Mono";
+	font-family: FiraMono Nerd Font Mono;
 	font-weight: bold;
-	font-size: 1.6em;
+	font-size: 25px;
 	background-color: $black;
 	border-radius: 8px;
 	margin: 5px;
+	padding: 5px 0px 5px 0px;
 }
 
 .bat{
@@ -94,6 +94,10 @@ tooltip.background {
 .wifi-icon{
 	margin-bottom: .2rem;
 	color: $magenta;
+}
+.bluetooth-icon{
+	margin-bottom: .2rem;
+	color: $cyan;
 }
 .brightness-icon{
 	margin: .2rem 0 .2rem 0;

@@ -61,22 +61,24 @@
 (defwidget system [] 
 	(box :class "genwin" :vexpand "false" :hexpand "false" 
 		(box :orientation "v" :spacing 35 :halign "center" :valign "center" :space-evenly "false" :vexpand "false" :hexpand "false" 
-			(box :class "cpu_bar" :orientation "h" :spacing 20 :space-evenly "false" :vexpand "false" :hexpand "false" 
-				(label :class "iconcpu" :text "")
-				(scale :min 0 :max 100 :value CPU_USAGE :active "false")
-				(label :class "labelcpu" :text "${ CPU_USAGE }%"))
-			(box :class "mem_bar" :orientation "h" :spacing 20 :space-evenly "false" :vexpand "false" :hexpand "false" 
-				(label :class "iconmem" :text "")
-				(scale :min 0 :max 100 :value MEM_USAGE :active "false")
-				(label :class "labelmem" :text "${ MEM_USAGE }%"))
-			(box :class "temp_bar" :orientation "h" :spacing 20 :space-evenly "false" :vexpand "false" :hexpand "false" 
-				(label :class "icontemp" :text "")
-				(scale :min 0 :max 100 :value TEMP :active "false")
-				(label :class "labeltemp" :text "${ TEMP }󰔄"))
-			(box :class "bat_bar" :orientation "h" :spacing 20 :space-evenly "false" :vexpand "false" :hexpand "false" 
-				(label :class "iconbat" :text "")
-				(scale :min 0 :max 100 :value BATTERY :active "false")
-				(label :class "labelbat" :text "${ BATTERY }%")))))
+			(box :orientation "h" :spacing 35 :halign "center" :valign "center" :space-evenly "false" :vexpand "false" :hexpand "false" 
+				(circular-progress :value CPU_USAGE :active "false" :thickness 10 :class "iconcpu" :start-at 0
+					(label :class "labelcpu" :text ""))
+				(circular-progress :value MEM_USAGE :active "false" :thickness 10 :class "iconmem" :start-at 0
+					(label :class "labelmem" :text "")))
+			(box :orientation "h" :spacing 35 :halign "center" :valign "center" :space-evenly "false" :vexpand "false" :hexpand "false" 
+				(circular-progress :value TEMP :active "false" :thickness 10 :class "icontemp" :start-at 0
+					(label :class "labeltemp" :text ""))
+				(circular-progress :value BATTERY :active "false" :thickness 10 :class "iconbat" :start-at 0
+					(label :class "labelbat" :text ""))
+				)
+			)
+		)
+	)
+;; (label :class "labeltemp" :text "${ TEMP }󰔄"))
+;; (label :class "labelcpu" :text "${ CPU_USAGE }%"))
+;; (label :class "labelmem" :text "${ MEM_USAGE }%"))
+;; (label :class "labelbat" :text "${ BATTERY }%"))
 
 ;; clock
 (defwidget clock [] 
