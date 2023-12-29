@@ -1,0 +1,107 @@
+.titlebar-button:-moz-lwtheme {
+	appearance: auto !important;
+}
+
+.titlebar-spacer[type="post-tabs"] {
+	display: none
+}
+
+.titlebar-min:-moz-lwtheme,
+.titlebar-max:-moz-lwtheme,
+.titlebar-restore:-moz-lwtheme,
+.titlebar-close:-moz-lwtheme {
+	list-style-image: none !important;
+}
+
+.titlebar-button:-moz-lwtheme:hover,
+.titlebar-button:-moz-lwtheme:hover:active {
+	background-color: unset !important;
+	color: unset !important;
+}
+
+#tracking-protection-icon-box {
+	display: none !important;
+}
+
+/* Ublock Origin */
+#ublock0_raymondhill_net-browser-action .webextension-browser-action {
+	list-style-image: url("extensions/ublock.svg") !important;
+}
+
+/* Dark Reader */
+:is(.webextension-browser-action, .eom-addon-button)[data-extensionid="addon@darkreader.org" i] .toolbarbutton-icon {
+	list-style-image: url("extensions/darkreader.svg");
+}
+
+/* Bitwarden */
+#sidebar-box[sidebarcommand="_446900e4-71c2-419f-a6a7-df9c091e268b_-sidebar-action"] #sidebar-switcher-target>#sidebar-icon,
+:is(.webextension-browser-action, .eom-addon-button)[data-extensionid="{446900e4-71c2-419f-a6a7-df9c091e268b}"] .toolbarbutton-icon,
+menupopup#viewSidebarMenu menuitem.menuitem-iconic.webextension-menuitem#menubar_menu__446900e4-71c2-419f-a6a7-df9c091e268b_-sidebar-action[style]:not([checked="true"]) {
+	list-style-image: url("extensions/bitwarden.svg") !important;
+}
+
+/* sidebar */
+
+#main-window #titlebar {
+	overflow: hidden;
+	transition: height 0.3s 0.3s !important;
+}
+
+::selection {
+    background: #a6e3a1 !important;
+}
+
+/* Default state: Set initial height to enable animation */
+#main-window #titlebar {
+	height: 3em !important;
+}
+
+#main-window[uidensity="touch"] #titlebar {
+	height: 3.35em !important;
+}
+
+#main-window[uidensity="compact"] #titlebar {
+	height: 2.7em !important;
+}
+
+/* Hidden state: Hide native tabs strip */
+#main-window[titlepreface*="SD"] #titlebar {
+	height: 0 !important;
+}
+
+/* Hidden state: Fix z-index of active pinned tabs */
+#main-window[titlepreface*="SD"] #tabbrowser-tabs {
+	z-index: 0 !important;
+}
+
+.sidebar-splitter {
+	display: none !important;
+}
+
+#sidebar-header {
+	display: none !important;
+}
+
+
+#sidebar-box[sidebarcommand="_3c078156-979c-498b-8990-85f7987dd929_-sidebar-action"] {
+	position: relative;
+	min-width: 50px !important;
+	max-width: 50px !important;
+	z-index: 1;
+	transition: all 0.3s;
+	transition-delay: 0.15s;
+}
+
+
+#sidebar {
+	min-width: 50px !important;
+	will-change: min-width;
+	transition: all 0.3s;
+	transition-delay: 0.15s;
+}
+
+#sidebar-box[sidebarcommand="_3c078156-979c-498b-8990-85f7987dd929_-sidebar-action"]:is(.active, :focus, :hover)>#sidebar {
+	min-width: 300px !important;
+	transition: all 0.3s;
+	transition-delay: 0.15s;
+}

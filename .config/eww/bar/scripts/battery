@@ -1,0 +1,23 @@
+#!/bin/bash
+
+bat=/sys/class/power_supply/BAT1/
+per="$(cat "$bat/capacity")"
+
+
+color() {
+	line="$(acpi --ac-adapter | cut -d ":" -f 2 | xargs)"
+	if [[ "$line" == "off-line" ]]; then
+		echo "#cba6f7"
+	else
+		echo "#89dceb"
+	fi
+}
+
+
+percent() {
+echo "$per"
+}
+
+[ "$1" = "color" ] && color && exit
+[ "$1" = "percent" ] && percent && exit
+exit

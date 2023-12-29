@@ -1,0 +1,230 @@
+.menu_main {
+	background-color: rgba($color: $foreground, $alpha: 0.8);
+	border-radius: $corners;
+	margin: 5px 0px 5px 60px;
+}
+
+
+.menu-button-false {
+	background-color: $black;
+	border-radius: $corners;
+	margin: 10px 15px 10px 15px;
+	transition: 0.3s ease background;
+}
+
+.menu-button-true {
+	background-color: $accent;
+	border-radius: $corners;
+	margin: 10px 15px 10px 15px;
+	transition: 0.3s ease background;
+}
+
+.menu-button {
+	background-color: inherit;
+	border-radius: $corners;
+	padding: 10px 50px 10px 50px;
+	font-family: $font;
+	font-weight: bold;
+	font-size: 50px;
+}
+
+.menu-system {
+	margin: 15px;
+	padding: 20px;
+	background-color: $black;
+	border-radius: $corners;
+}
+
+.menu-cal {
+	margin: 15px;
+	background-color: $black;
+	border-radius: $corners;
+}
+
+.menu-cpu,
+.menu-mem,
+.menu-temp,
+.menu-bat {
+	color: $accent;
+	background-color: $background;
+}
+
+.menu-box {
+	color: $accent;
+	border-radius: $corners;
+	padding: 30px 30px 30px 30px;
+}
+
+.menu-label-2 {
+	font-family: $font;
+	font-size: 20px;
+	color: $accent;
+	font-weight: 500;
+	padding: 0px 30px 0px 30px;
+}
+
+.menu-cpu-label,
+.menu-mem-label,
+.menu-temp-label,
+.menu-bat-label {
+	font-family: $font;
+	font-size: 40px;
+	color: $accent;
+}
+
+.menu-storage {
+	border-radius: $corners;
+	background-color: $black;
+	margin: 15px;
+	padding: 10px;
+}
+
+.menu-disk-root trough, .menu-disk-user trough {
+	all: unset;
+	background-color: $background;
+	border-radius: $corners;
+	min-height: 20px;
+	min-width: 360px;
+	// margin: .3rem 0 .3rem 0;
+}
+
+
+.menu-disk-root trough highlight, .menu-disk-user trough highlight {
+	// min-width: 100px;
+	background-color: $accent;
+	border-radius: $corners;
+}
+
+
+.menu-disk-icon {
+	font-family: $font;
+	font-size: 40px;
+	color: $accent2;
+	margin: 5px 10px;
+}
+
+.menu-disk-label {
+	font-family: $font;
+	font-size: 20px;
+	color: $accent2;
+	margin: 5px 10px;
+}
+
+.menu-artist {
+	color: $accent2;
+	font-size: 20px;
+	font-weight: bold;
+}
+
+.menu-song {
+	color: $accent2;
+	font-size: 30px;
+	font-weight: bold;
+}
+
+.menu-album-art {
+	background-size: cover;
+	margin: 15px;
+	background-color: $black;
+	border-radius: $corners;
+	padding: 0px 10px 0px 10px;
+}
+
+.menu-weather {
+	border-radius: $corners;
+	background-color: $black;
+	margin: 15px;
+	padding: 10px;
+}
+
+.menu-weather-value {
+	font-size: 50px;
+	font-weight: 600;
+}
+
+.menu-weather-icon {
+	font-size: 100;
+}
+
+.menu-weather-stat {
+	font-size: 40;
+}
+
+.menu-music-scale scale trough highlight {
+	background-color: $accent;
+	border-radius: $corners;
+}
+
+.menu-music-scale scale trough {
+	background-color: $background;
+	border-radius: $corners;
+	min-height: 10px;
+	min-width: 440px;
+}
+
+.menu-music-next {
+	color: $accent2;
+	font-size: 30px;
+}
+
+.menu-music-pause {
+	color: $accent2;
+	font-size: 30px;
+}
+
+.menu-music-prev {
+	color: $accent2;
+	font-size: 30px;
+}
+
+.cal-inner-box {
+	margin: 0px 0px 0px 0px;
+	padding: 0px 0px 0px 0px;
+}
+
+calendar {
+	&:selected {
+		font-size: 30px;
+		color: $blue;
+	}
+
+	&.header {
+		font-size: 100px;
+		color: $red;
+		font-weight: bold;
+	}
+
+	&.button {
+		font-size: 30px;
+		color: $red;
+	}
+
+	&.highlight {
+		font-size: 30px;
+		color: $mauve;
+		font-weight: bold;
+	}
+
+	&:indeterminate {
+		font-size: 30px;
+		color: #16161E;
+		;
+	}
+
+	font-family: $font;
+	font-weight: bold;
+	font-size: 20px;
+	padding: 6px 7px 7px 7px;
+}
+
+
+.screenshot_menu {
+	background-color: $black;
+	border-radius: $corners;
+	margin: 10px 0px 0px 0px;
+	font-size: 20px;
+}
+
+.screenshot_item {
+	padding: 20px;
+}

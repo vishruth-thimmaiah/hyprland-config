@@ -1,0 +1,49 @@
+#!/bin/bash
+
+
+main (){
+	UPPER_LIMIT=15
+	LOWER_LIMIT=5
+
+	LIMIT="${UPPER_LIMIT}"
+	POPUP_CLICKED=""
+
+	while true; do
+
+		PERC=$(acpi | cut -d " " -f 4 | cut -d "%" -f 1)
+		STATUS=$(acpi | cut -d " " -f 3)
+		if [[ $STATUS == "Discharging," ]]; then
+			if [[ $PERC -le $LIMIT ]]; then
+
+				ICON_1="/usr/share/icons/candy-icons/devices/scalable/battery.svg"
+				ICON_2="/usr/share/icons/HighContrast/scalable/status/battery-low.svg"
+
+				if [[ -f $ICON_1 ]]; then
+					NOTIFY_ICON="${ICON_1}"
+				elif [[ -f $ICON_2 ]]; then
+					NOTIFY_ICON="${ICON_2}"
+				fi
+				[[ -n $NOTIFY_ICON ]] && NOTIFY_OPT="-i ${NOTIFY_ICON}"
+				# shellcheck disable=SC2086
+				nid="$(notify-send -u critical "Warning: Battery is getting low" ${NOTIFY_OPT} -p)"
+				if [[ -z $POPUP_CLICKED ]]; then
+					POPUP_CLICKED="y"
+					LIMIT=${LOWER_LIMIT}
+				else
+					LIMIT=0
+				fi
+			fi
+		else
+			POPUP_CLICKED=""
+			dunstify -C "$nid"
+			if [[ $PERC -gt $UPPER_LIMIT ]]; then
+				LIMIT=${UPPER_LIMIT}
+			else
+				LIMIT=${LOWER_LIMIT}
+			fi
+		fi
+		sleep 10
+	done
+}
+
+main

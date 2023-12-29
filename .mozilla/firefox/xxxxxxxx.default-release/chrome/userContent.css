@@ -1,0 +1,118 @@
+:root {
+	--main: #1e1e2e;
+	--second: #181825;
+	--accent: #a6e3a1;
+
+}
+
+@-moz-document url(about:home), url(about:newtab){
+
+.click-target-container *,
+.top-sites-list * {
+	font-weight: bold;
+	font-size: 13px;
+}
+
+.top-site-outer:is(.active, :focus, :hover) {
+	background: var(--second) !important;
+	color: var(--accent) !important ;
+	transform: scale(1.1);
+		backdrop-filter: blur(0px);
+}
+
+.outer-wrapper {
+	min-height: 90vh !important;
+}
+
+.top-site-outer {
+	backdrop-filter: blur(10px);
+	color: inherit !important;
+	padding: 10px 0px 0px 0px !important;
+	background-color: rgba(181825ff) !important;
+	margin: 5px;
+	width: 110px !important;
+	transition: all 0.3s !important;
+}
+
+
+.top-site-outer .title {
+		color: inherit !important;
+	}
+
+.top-site-outer .title .icon {
+	display: none !important;
+}
+
+.context-menu-button {
+	top: -5px !important;
+	inset-inline-end: 10px !important;
+}
+
+.tile {
+	background-color: var(--second) !important;
+	background-color: inherit !important;
+	box-shadow: none !important;
+	height: 60px !important;
+}
+
+.top-site-icon {
+	background-color: inherit !important;
+}
+
+.personalize-button {
+	display: none !important;
+}
+
+body::before {
+	content: "";
+	z-index: -1;
+	position: fixed;
+	top: 0;
+	left: 0;
+	background: url(img/arch-black-4k.png) center;
+	background-size: cover;
+	width: 100vw;
+	height: 100vh;
+}
+}
+
+@-moz-document regexp(".+pdf.*") {
+	#toolbarViewer {
+		background-color: var(--main) !important;
+	}
+
+	#toolbarSidebar {
+		background-color: var(--main) !important;
+	}
+
+	#thumbnailView,
+	#attachmentsView,
+	#outlineView,
+	#layersView {
+		background-color: var(--main) !important;
+	}
+
+	#secondaryToolbarButtonContainer {
+		background-color: var(--main) !important;
+	}
+
+	.secondaryToolbar,
+	.editorParamsToolbar {
+		background-color: var(--main) !important;
+	}
+
+	.pdfViewer {
+		background-color: var(--second);
+	}
+
+	.toolbarField {
+		padding: 1px 5px !important;
+		border: 0px !important;
+		margin: 6px !important;
+		background-color: var(--second) !important;
+	}
+
+	.dropdownToolbarButton>select {
+		background-color: var(--second) !important;
+	}
+}
