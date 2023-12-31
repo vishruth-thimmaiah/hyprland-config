@@ -28,10 +28,18 @@ $accent2: $mauve;
 
 $corners: 12px;
 
-$font: FiraCode Nerd Font Mono;
+$font: Varela Round;
+$nerdfont: FiraCode Nerd Font Mono;
 
 * {
 	all: unset;
+}
+
+tooltip.background {
+	background-color: rgba($color: $black, $alpha: 0.9);
+	font-size: 18;
+	border-radius: $corners;
+	color: $white;
 }
 
 

@@ -80,37 +80,26 @@
 						  :year calendar_year))))
 
 (defwidget menu-system []
-	(box :class "menu-system"
-		(box :orientation "v" :spacing 35
-			(box :orientation "h" :spacing 35
-				(circular-progress :value CPU_USAGE :active "false" :thickness 10 :class "menu-cpu" :start-at 75
-					(box :orientation "v" :class "menu-box"
-						(label :class "menu-cpu-label" :text "")
-						(label :class "menu-label-2" :text "${CPU_USAGE}%")))
-				(circular-progress :value MEM_USAGE :active "false" :thickness 10 :class "menu-mem" :start-at 75
-					(box :orientation "v" :class "menu-box"
-						(label :class "menu-mem-label" :text "")
-						(label :class "menu-label-2" :text "${MEM_USAGE}%"))))
-			(box :orientation "h" :spacing 35
-				(circular-progress :value TEMP :active "false" :thickness 10 :class "menu-temp" :start-at 75
-					(box :orientation "v" :class "menu-box"
-					(label :class "menu-temp-label" :text "")
-					(label :class "menu-label-2" :text "${TEMP}%")))
-				(circular-progress :value BATTERY :active "false" :thickness 10 :class "menu-bat" :start-at 75
-					(box :orientation "v" :class "menu-box"
-					(label :class "menu-bat-label" :text "")
-					(label :class "menu-label-2" :text "${BATTERY}%")))))))
+(box :class "menu-system" :space-evenly false
+	(label :text "CPU" :angle 90 :valign "end" :class "menu-cpu-label")
+	(scale :value CPU_USAGE :orientation "v" :flipped true :active "false" :draw-value true :min 0 :max 100 :class "menu-cpu")
+	(label :text "Memory" :angle 90 :valign "end" :class "menu-mem-label")
+	(scale :value MEM_USAGE :orientation "v" :flipped true :active "false" :draw-value true :min 0 :max 100 :class "menu-mem")
+	(label :text "Temperature" :angle 90 :valign "end" :class "menu-temp-label")
+	(scale :value TEMP :orientation "v" :flipped true :active "false" :draw-value true :min 0 :max 100 :class "menu-temp")
+	(label :text "Battery" :angle 90 :valign "end" :class "menu-bat-label")
+	(scale :value BATTERY :orientation "v" :flipped true :active "false" :draw-value true :min 0 :max 100 :class "menu-bat")))
 
 (defwidget menu-storage []
-	(box :class "menu-storage" :orientation "v"
-		(box :orientation "h" :space-evenly false :tooltip "${FREE}GB Free out of ${TOTAL}GB"
-			(label :class "menu-disk-label" :text "${FREE}GB")
-			(scale :value FREE :min 0 :max TOTAL :active "false" :class "menu-disk-root")
-			(label :class "menu-disk-icon" :text "󰯤"))
-		(box :orientation "h" :space-evenly false :tooltip "${FREE_USER}GB Free out of ${TOTAL_USER}GB"
-			(label :class "menu-disk-label" :text "${FREE_USER}GB")
-			(scale :value FREE_USER :min 0 :max TOTAL_USER :active "false" :class "menu-disk-user")
-			(label :class "menu-disk-icon" :text "󰯨"))))
+	(box :class "menu-storage" :orientation "v" :space-evenly false
+		(box :orientation "h" :space-evenly true
+			(label :class "menu-disk-icon" :halign "start" :text "󰯤")
+			(label :class "menu-disk-label" :halign "end" :text "${FREE}GB out of ${TOTAL}GB used"))
+		(scale :value FREE :min 0 :max TOTAL :active "false" :class "menu-disk-root")
+		(box :orientation "h" :space-evenly true
+			(label :class "menu-disk-icon" :halign "start" :text "󰯨")
+			(label :class "menu-disk-label" :halign "end" :text "${FREE_USER}GB out of ${TOTAL_USER}GB used"))
+(scale :value FREE_USER :min 0 :max TOTAL_USER :active "false" :class "menu-disk-user")))
 
 (defwidget menu-music []
 		(box :class "menu-album-art" :height 300 :vexpand "true" :hexpand "false" :style "background-image: url('${COVER}');" :orientation "v"
@@ -140,7 +129,7 @@
 			 :hexpand "true"
 			 :halign "end"
 			(label :class "menu-weather-value"
-				   :halign "start"
+				   :halign "end"
 				   :text WEATHER)
 			(label :class "menu-weather-stat"
 				:text STAT))))

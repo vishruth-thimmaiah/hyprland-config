@@ -92,6 +92,13 @@ menupopup#viewSidebarMenu menuitem.menuitem-iconic.webextension-menuitem#menubar
 	transition-delay: 0.15s;
 }
 
+:root[inFullscreen="true"] #sidebar-box {
+	margin-left: -49px;
+}
+
+:root[inFullscreen="true"] #sidebar-box:is(.active, :focus, :hover) {
+	margin-left: 0px;
+}
 
 #sidebar {
 	min-width: 50px !important;

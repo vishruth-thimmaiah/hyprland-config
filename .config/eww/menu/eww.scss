@@ -1,12 +1,12 @@
 .menu_main {
-	background-color: rgba($color: $foreground, $alpha: 0.8);
+	background-color: rgba($color: $black, $alpha: 0.8);
 	border-radius: $corners;
 	margin: 5px 0px 5px 60px;
 }
 
 
 .menu-button-false {
-	background-color: $black;
+	background-color: $background;
 	border-radius: $corners;
 	margin: 10px 15px 10px 15px;
 	transition: 0.3s ease background;
@@ -23,30 +23,52 @@
 	background-color: inherit;
 	border-radius: $corners;
 	padding: 10px 50px 10px 50px;
-	font-family: $font;
+	font-family: $nerdfont;
 	font-weight: bold;
 	font-size: 50px;
 }
 
 .menu-system {
-	margin: 15px;
+	margin: 10px 15px;
 	padding: 20px;
-	background-color: $black;
+	background-color: $background;
 	border-radius: $corners;
 }
 
 .menu-cal {
-	margin: 15px;
-	background-color: $black;
+	margin: 10px 15px;
+	background-color: $background;
 	border-radius: $corners;
 }
 
-.menu-cpu,
-.menu-mem,
-.menu-temp,
-.menu-bat {
-	color: $accent;
-	background-color: $background;
+.menu-cpu  .top,
+.menu-mem  .top,
+.menu-temp  .top,
+.menu-bat .top {
+	color: $text;
+	font-family: $font;
+	font-size: 16px;
+	font-weight: bold;
+	padding: 0 0 10px 0;
+}
+
+.menu-cpu  trough,
+.menu-mem  trough,
+.menu-temp  trough,
+.menu-bat trough {
+	background-color: $foreground;
+	border-radius: $corners;
+	min-height: 330px;
+	min-width: 50px;
+	margin: -10px 0px 0px 0px;
+}
+
+.menu-cpu  trough highlight,
+.menu-mem  trough highlight,
+.menu-temp  trough highlight,
+.menu-bat trough highlight {
+	background-color: $accent;
+	border-radius: $corners;
 }
 
 .menu-box {
@@ -63,77 +85,89 @@
 	padding: 0px 30px 0px 30px;
 }
 
-.menu-cpu-label,
+.menu-cpu-label {
+	font-family: $font;
+	font-size: 20px;
+	color: $text;
+}
 .menu-mem-label,
 .menu-temp-label,
 .menu-bat-label {
 	font-family: $font;
-	font-size: 40px;
-	color: $accent;
+	font-size: 20px;
+	color: $text;
+	margin: 0px 10px 0px 45px;
 }
 
 .menu-storage {
 	border-radius: $corners;
-	background-color: $black;
-	margin: 15px;
+	background-color: $background;
+	margin: 10px 15px;
 	padding: 10px;
 }
 
-.menu-disk-root trough, .menu-disk-user trough {
-	all: unset;
-	background-color: $background;
+.menu-disk-root trough {
+	background-color: $foreground;
 	border-radius: $corners;
 	min-height: 20px;
 	min-width: 360px;
-	// margin: .3rem 0 .3rem 0;
+	margin: -10px 0px 20px 0px;
+}
+
+.menu-disk-user trough {
+	background-color: $foreground;
+	border-radius: 7px;
+	min-height: 20px;
+	min-width: 360px;
+	margin: -10px 0px 0px 0px;
 }
 
 
 .menu-disk-root trough highlight, .menu-disk-user trough highlight {
-	// min-width: 100px;
 	background-color: $accent;
-	border-radius: $corners;
+	border-radius: 7px;
 }
 
-
 .menu-disk-icon {
-	font-family: $font;
+	font-family: $nerdfont;
 	font-size: 40px;
-	color: $accent2;
-	margin: 5px 10px;
+	color: $text;
 }
 
 .menu-disk-label {
 	font-family: $font;
 	font-size: 20px;
-	color: $accent2;
-	margin: 5px 10px;
+	color: $text;
+    font-family: $font;
+	font-weight: bold;
 }
 
 .menu-artist {
-	color: $accent2;
+	color: $text;
 	font-size: 20px;
 	font-weight: bold;
 }
 
 .menu-song {
-	color: $accent2;
+	color: $text;
 	font-size: 30px;
 	font-weight: bold;
 }
 
 .menu-album-art {
 	background-size: cover;
-	margin: 15px;
-	background-color: $black;
+	margin: 10px 15px;
+	font-family: $font;
+	background-color: $background;
 	border-radius: $corners;
 	padding: 0px 10px 0px 10px;
 }
 
 .menu-weather {
 	border-radius: $corners;
-	background-color: $black;
-	margin: 15px;
+	background-color: $background;
+	font-family: $font;
+	margin: 10px 15px;
 	padding: 10px;
 }
 
@@ -147,33 +181,33 @@
 }
 
 .menu-weather-stat {
-	font-size: 40;
+	font-size: 35;
 }
 
 .menu-music-scale scale trough highlight {
 	background-color: $accent;
-	border-radius: $corners;
+	border-radius: 3px;
 }
 
 .menu-music-scale scale trough {
-	background-color: $background;
-	border-radius: $corners;
+	background-color: $foreground;
+	border-radius: 3px;
 	min-height: 10px;
 	min-width: 440px;
 }
 
 .menu-music-next {
-	color: $accent2;
+	color: $accent;
 	font-size: 30px;
 }
 
 .menu-music-pause {
-	color: $accent2;
+	color: $accent;
 	font-size: 30px;
 }
 
 .menu-music-prev {
-	color: $accent2;
+	color: $accent;
 	font-size: 30px;
 }
 
@@ -219,7 +253,7 @@ calendar {
 
 
 .screenshot_menu {
-	background-color: $black;
+	background-color: $background;
 	border-radius: $corners;
 	margin: 10px 0px 0px 0px;
 	font-size: 20px;

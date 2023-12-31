@@ -113,9 +113,9 @@
 			 :class "bar-time"
 			 :space-evenly "false"
 			 :vexpand "false"
-			 :valign "end"
 			(revealer :transition "slideup"
 					  :reveal clock
+				:halign "center"
 					  :duration "550ms"
 				(box :orientation "v" 
 					 :space-evenly false
@@ -123,7 +123,7 @@
 					(label :text day)
 					(label :text month)
 					(label :text year)
-					(label :text "")))
+					(label :text "")))
 			(label :class "bar-time-hour" :text hour)
 			(label :class "bar-time-min" :text min)
 			(label :class "bar-time-ampm" :text ampm))))
