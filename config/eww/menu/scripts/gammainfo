@@ -1,0 +1,11 @@
+#!/bin/bash
+
+pid=$(pgrep gammastep)
+
+if [[ -n $pid ]]; then
+	kill -TERM "$pid"
+	eww update GAMMA=false
+else
+	eww update GAMMA=true
+	gammastep
+fi

@@ -1,0 +1,3 @@
+timeout 300 ' chayang && systemctl suspend'
+timeout 25 'if [[ ! -f /tmp/lockscr ]] && [[ $(pgrep swaylock) ]]; then systemctl suspend; fi'
+before-sleep 'if [[ ! $(pgrep swaylock) ]]; then swaylock; fi'

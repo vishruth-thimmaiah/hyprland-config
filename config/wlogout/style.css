@@ -1,0 +1,47 @@
+* {
+	all: unset;
+}
+window {
+	background-color: rgba(12, 12, 12, 0.0);
+	transition: all 0.5s;
+	margin: 500px;
+}
+
+button {
+    color: #FFFFFF;
+	font-family: Yikes;
+	background-color: #11111b;
+	border-width: 0px;
+	margin: 15px;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 25%;
+	transition: all 0.5s;
+}
+
+button:active, button:hover {
+	background-color: #a6e3a1;
+	transition: all 0.5s;
+	/* margin: 5px; */
+	/* padding: 10px; */
+}
+
+#lock {
+    background-image: image(url("/usr/share/wlogout/icons/lock.png"), url("/usr/local/share/wlogout/icons/lock.png"));
+	border-radius: 10px 20px;
+}
+
+#logout {
+    background-image: image(url("/usr/share/wlogout/icons/logout.png"), url("/usr/local/share/wlogout/icons/logout.png"));
+	border-radius: 20px 10px;
+}
+
+#shutdown {
+    background-image: image(url("/usr/share/wlogout/icons/shutdown.png"), url("/usr/local/share/wlogout/icons/shutdown.png"));
+	border-radius: 10px 20px;
+}
+
+#reboot {
+    background-image: image(url("/usr/share/wlogout/icons/reboot.png"), url("/usr/local/share/wlogout/icons/reboot.png"));
+	border-radius: 20px 10px;
+}

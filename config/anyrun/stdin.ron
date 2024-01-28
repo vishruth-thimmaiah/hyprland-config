@@ -1,0 +1,4 @@
+// <Anyrun config dir>/stdin.ron
+Config(
+	max_entries: 10, 
+)

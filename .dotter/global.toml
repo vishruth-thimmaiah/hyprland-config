@@ -1,0 +1,74 @@
+# packages = ["default"]
+
+[default]
+depends = ["shell", "hyprland", "firefox"]
+
+[shell]
+depends = ["alacritty"]
+[shell.files]
+"zshrc" = { target = "~/.zshrc", type = "symbolic" }
+"p10k.zsh" = { target = "~/.p10k.zsh", type = "symbolic" }
+
+[alacritty]
+depends = []
+[alacritty.files]
+"config/alacritty/alacritty.toml" = { target = "~/.config/alacritty/alacritty.toml", type = "symbolic" }
+
+[hyprland]
+depends = ["eww", "swaylock", "swayidle", "dunst", "gammastep", "rofi", "anyrun", "wlogout"]
+[hyprland.files]
+"config/hypr/" = { target = "~/.config/hypr/", type = "symbolic" }
+
+[eww]
+depends = []
+[eww.files]
+"config/eww/" = { target = "~/.config/eww/", type = "symbolic" }
+"config/eww/menu/scripts/api" = { target = "~/.config/eww/menu/scripts/api", type = "template" }
+[eww.variables]
+weather_api=""
+weather_city=""
+
+[firefox]
+depends = []
+[firefox.files]
+"firefox/chrome/" = { target = "", type = "symbolic" }
+
+[swaylock]
+depends = []
+[swaylock.files]
+"config/swaylock/" = { target = "~/.config/swaylock/", type = "symbolic" }
+
+[swayidle]
+depends = []
+[swayidle.files]
+"config/swayidle/" = { target = "~/.config/swayidle/", type = "symbolic" }
+
+[dunst]
+depends = []
+[dunst.files]
+"config/dunst/" = { target = "~/.config/dunst/", type = "symbolic" }
+
+[gammastep]
+depends = []
+[gammastep.files]
+"config/gammastep/" = { target = "~/.config/gammastep/", type = "template" }
+[gammastep.variables]
+lat=""
+lon=""
+
+[rofi]
+depends = []
+[rofi.files]
+"config/rofi/" = { target = "~/.config/rofi/", type = "symbolic" }
+
+[anyrun]
+depends = []
+[anyrun.files]
+"config/anyrun/" = { target = "~/.config/anyrun/", type = "symbolic" }
+"bin/anyrun" = ""
+
+[wlogout]
+depends = []
+[wlogout.files]
+"config/wlogout/" = { target = "~/.config/wlogout/", type = "symbolic" }
+"bin/wlogout" = ""

@@ -1,0 +1,46 @@
+#window {
+	background-color: rgba(0, 0, 0, 0);
+	font-family: VarelaRound;
+}
+
+#entry {
+	/* background-color: #11111b; */
+	background-color: rgba(17, 17, 27, 1);
+	min-height: 50px;
+	font-size: 35px;
+	border: 0px;
+	border-radius: 10px;
+	padding: 10px;
+	margin: 5px 0px;
+	letter-spacing: 2px;
+}
+
+box#main {
+	border-radius: 10px;
+	background-color: rgba(0, 0, 0, 0);
+}
+
+box#plugin {
+	background-color: #11111b;
+	border: 0px;
+	border-radius: 10px;
+	padding: 5px;
+}
+
+list#main {
+	background-color: rgba(0, 0, 0, 0);
+	border-radius: 10px;
+	font-size: 15px;
+}
+
+list#plugin {
+	background-color: rgba(0, 0, 0, 0);
+}
+
+label#match-desc {
+	font-size: 10px;
+}
+
+label#plugin {
+	font-size: 14px;
+}

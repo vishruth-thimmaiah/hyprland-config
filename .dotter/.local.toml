@@ -1,0 +1,11 @@
+includes = []
+packages = ["default"]
+
+[files]
+"firefox/chrome/" = { target = "~/.mozilla/firefox/xxxxxxxx.default-release/chrome/", type = "symbolic" }
+
+[variables]
+lat="0.0"
+lon="0.0"
+weather_api="ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ"
+weather_city="London"
