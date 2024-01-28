@@ -72,7 +72,7 @@ body::before {
 	position: fixed;
 	top: 0;
 	left: 0;
-	background: url(img/arch-black-4k.png) center;
+	background: url(img/arch-black-4k.webp) center;
 	background-size: cover;
 	width: 100vw;
 	height: 100vh;

@@ -4,7 +4,7 @@ indicator
 indicator-y-position=470
 
 hide-keyboard-layout
-image=~/.config/swaylock/background.png
+image=~/.config/swaylock/background.webp
 
 indicator-radius=150
 indicator-thickness=10
