@@ -31,7 +31,12 @@ weather_city=""
 [firefox]
 depends = []
 [firefox.files]
-"firefox/chrome/" = { target = "", type = "symbolic" }
+"firefox/chrome/img" = { target = "", type = "symbolic" }
+"firefox/chrome/extensions" = { target = "", type = "symbolic" }
+"firefox/chrome/userContent.css" = { target = "", type = "template" }
+"firefox/chrome/userChrome.css" = { target = "", type = "symbolic" }
+[firefox.variables]
+var=""
 
 [swaylock]
 depends = []
