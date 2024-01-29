@@ -117,6 +117,8 @@ zstyle ':completion::complete:*' use-cache 1
 # Change cursor shape for different vi modes.
 bindkey -v
 bindkey -v '^[;' autosuggest-accept
+bindkey -v '^N' forward-word
+ZSH_AUTOSUGGEST_PARTIAL_ACCEPT_WIDGETS+=(forward-char)
 function zle-keymap-select {
   if [[ ${KEYMAP} == vicmd ]] ||
      [[ $1 = 'block' ]]; then
