@@ -1,10 +1,22 @@
 (defvar eww "/usr/bin/eww")
 
 
-(deflisten workspace "bar/scripts/hypr.sh")
+
+(deflisten workspaces :initial "[]" "bash ~/.config/eww/bar/scripts/workspaces get")
+(deflisten current_workspace :initial "1" "bash ~/.config/eww/bar/scripts/workspaces get-active")
 (defwidget workspaces []
-	(eventbox :onscroll "if [[ $(hyprctl activeworkspace | grep ID | cut -f 3 -d ' ') -lt 9 || {} == up ]]; then echo {} | sed -e 's/up/-1/g' -e 's/down/+1/g'; else echo 9; fi | xargs hyprctl dispatch workspace"
-		(literal :content workspace)))
+(eventbox :onscroll "bash ~/.config/eww/bar/scripts/workspaces change {} ${current_workspace}" :class "workspaces-widget"
+	(box :space-evenly false :orientation "v" :class "bar-workspace"
+		(for workspace in workspaces
+			(eventbox :onclick "hyprctl dispatch workspace ${workspace.id}"
+				(box :class "${workspace.id == current_workspace ? "current" : ""} ${workspace.windows > 0 ? "occupied" : "empty"}"
+					(label :text "")
+					)
+				)
+			)
+		)
+	)
+)
 
 (defwidget tray []
 	(systray :pack-direction "ttb"
@@ -81,7 +93,7 @@
 					   :max 100
 					   :min 0
 					   :onchange "amixer -D pulse sset Master {}%"))
-			(button	:onclick "bar/scripts/popup audio"
+			(button	:onclick "pavucontrol & disown"
 					:class volumestat ""))))
 
 (defpoll current-volume :interval "1s" "amixer -D pulse sget Master | grep 'Left:' | awk -F'[][]' '{ print $2 }' | tr -d '%'")
@@ -142,7 +154,7 @@
 
 (defwidget power []
 			(button :class "bar-button-logout-menu"
-				:tooltip "Restart Hyprland"
+				:tooltip "Power Menu"
 				:onclick "wlogout -b 4 -p layer-shell --margin-bottom 100 --margin-top 800 --margin-left 500 --margin-right 500 & disown"
 				:onrightclick "hyprctl reload; eww reload" "󰸊"))
 

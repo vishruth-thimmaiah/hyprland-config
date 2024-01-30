@@ -76,63 +76,35 @@ menuitem {
 
 
 .bar-workspace {
-	font-size: 30px;
 	font-family: $nerdfont;
 	background-color: $black;
 	border-radius: $corners;
 	margin: 3px;
-	padding: 5px 0px 5px 0px;
+	padding: 5px 15px;
 }
 
-.w,
-.w1,
-.w2,
-.w3,
-.w4,
-.w5,
-.w6,
-.w7,
-.w8,
-.w9,
-.w11,
-.w22,
-.w33,
-.w44,
-.w55,
-.w66,
-.w77,
-.w88,
-.w99 {
-	margin: 2px 0px;
-	background-color: $black;
+.empty, .occupied, .current {
+	margin: 10px 0px;
+	font-size: 12px;
 }
 
-.w {
+.empty {
 	color: $gray3;
+	background-color: $gray3;
+	border-radius: 20px;
 }
 
-.w1,
-.w2,
-.w3,
-.w4,
-.w5,
-.w6,
-.w7,
-.w8,
-.w9 {
+.occupied {
 	color: $text;
+	background-color: $text;
+	border-radius: 20px;
 }
 
-.w11,
-.w22,
-.w33,
-.w44,
-.w55,
-.w66,
-.w77,
-.w88,
-.w99 {
+.current {
 	color: $accent;
+	background-color: $accent;
+	padding: 15px 0px;
+	border-radius: 10px;
 }
 
 .bar-control {
