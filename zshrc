@@ -4,7 +4,6 @@ export PATH=/home/vishr/.local/bin/:$PATH
 
 # variable exports
 
-export KEYTIMEOUT=1
 export COLUMNS=$COLUMNS
 export EDITOR="nvim" 
 export LINES=$LINES

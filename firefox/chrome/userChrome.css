@@ -20,39 +20,20 @@
 }
 
 
+:root:is([titlepreface*="SD"]) #nav-bar {
+	padding-right: 60px !important;
+}
 
-/* #navigator-toolbox { */
-/* 	max-height: 10px; */
-/* 	position: relative; */
-/* 	overflow: hidden; */
-/* 	transition: ease all 5s; */
-/* 	z-index: 1; */
-/* } */
-/**/
-/* #navigator-toolbox:hover, #navigator-toolbox:focus-within { */
-/* 	max-height: 150vh; */
-/* 	opacity: 1; */
-/* 	animation: 0s pop-in; */
-/* 	animation-fill-mode: both; */
-/* 	animation-delay: 5s; */
-/* } */
-/**/
-/* #navigator-toolbox > *{ line-height: normal; pointer-events: auto } */
-/**/
-/* #navigator-toolbox, */
-/* #navigator-toolbox > *{ */
-/*   width: 100vw; */
-/*   -moz-appearance: none !important; */
-/* } */
+:root:not([titlepreface*="SD"]) #nav-bar {
+	padding-right: 0px !important;
+}
 
-@keyframes pop-in {
-	from {
-		overflow: hidden
-	}
 
-	to {
-		overflow: unset
-	}
+:root:is([titlepreface*="SD"]):not([inFullscreen="true"]) #TabsToolbar>.titlebar-buttonbox-container {
+	display: block;
+	position: absolute;
+	top: 12px;
+	right: 0px;
 }
 
 #navigator-toolbox {
@@ -151,7 +132,7 @@ menupopup#viewSidebarMenu menuitem.menuitem-iconic.webextension-menuitem#menubar
 }
 
 
-#sidebar-box[sidebarcommand="_3c078156-979c-498b-8990-85f7987dd929_-sidebar-action"]:is(.active, :focus, :hover){
+#sidebar-box[sidebarcommand="_3c078156-979c-498b-8990-85f7987dd929_-sidebar-action"]:is(.active, :focus, :hover) {
 	border: 1px;
 }
 
