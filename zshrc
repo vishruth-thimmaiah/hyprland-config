@@ -1,6 +1,6 @@
 # If you come from bash you might have to change your $PATH.
 
-export PATH=/home/vishr/.local/bin/:$PATH
+export PATH=$HOME/.local/bin/:$PATH
 
 # variable exports
 
@@ -190,10 +190,10 @@ compctl -K _pip_completion pip
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
 #spicetify
-export PATH=$PATH:/home/vishr/.spicetify
+export PATH=$PATH:$HOME/.spicetify
 
 # Extra completions
-fpath=( /home/vishr/.oh-my-zsh/completions $fpath )
+fpath=( $HOME/.oh-my-zsh/completions $fpath )
 compdef _gnu_generic hyprland neofetch
 zstyle ':autocomplete:*' default-context history-incremental-search-backward
 
