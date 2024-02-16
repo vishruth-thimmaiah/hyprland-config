@@ -97,6 +97,8 @@ menupopup#viewSidebarMenu menuitem.menuitem-iconic.webextension-menuitem#menubar
 
 .sidebar-splitter {
 	width: 1px !important;
+	border: 0px !important;
+	background-color: #0f0f17 !important;
 }
 
 #sidebar-header {
