@@ -118,7 +118,7 @@ key = "F2"
 mods = "Control"
 
 [keyboard.bindings.command]
-args = ["msg", "config", "window.opacity=0.90"]
+args = ["msg", "config", "window.opacity=0.85"]
 program = "alacritty"
 
 [[keyboard.bindings]]
