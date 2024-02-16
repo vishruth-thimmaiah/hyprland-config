@@ -12,9 +12,11 @@
 
 ---
 # Preview
-![image1](https://github.com/Vishruth-Thimmaiah/hyprland-config/assets/111981004/9e577ef2-0399-4bfe-9494-7802385223d6)
-![image2](https://github.com/Vishruth-Thimmaiah/hyprland-config/assets/111981004/53594666-f5ba-4370-bb4e-fcd190a6a3c5)
-![image3](https://github.com/Vishruth-Thimmaiah/hyprland-config/assets/111981004/ee5f863c-bd65-42fc-93ba-c9efe020ce44)
+![image1](https://github.com/Vishruth-Thimmaiah/hyprland-config/assets/111981004/bcd8f451-d77c-4ebe-a4ef-ca5aee8f62ec)
+![image2](https://github.com/Vishruth-Thimmaiah/hyprland-config/assets/111981004/6375730d-2b94-495d-aef4-50d2ac5ad030)
+![image3](https://github.com/Vishruth-Thimmaiah/hyprland-config/assets/111981004/e4e3d42c-9af9-4cb3-a9de-0402f0380470)
+
+
 
 ---
 
