@@ -16,8 +16,6 @@
 ![image2](https://github.com/Vishruth-Thimmaiah/hyprland-config/assets/111981004/6375730d-2b94-495d-aef4-50d2ac5ad030)
 ![image3](https://github.com/Vishruth-Thimmaiah/hyprland-config/assets/111981004/e4e3d42c-9af9-4cb3-a9de-0402f0380470)
 
-
-
 ---
 
 ## Other packages used:
