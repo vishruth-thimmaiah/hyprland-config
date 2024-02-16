@@ -36,7 +36,7 @@ menu {
 	border-radius: $corners;
 	padding: 5px;
 	font-size: 15px;
-	font-weight: bold;
+	font-weight: 600;
 }
 
 menu>menuitem {
@@ -56,12 +56,10 @@ menu>separator {
 
 menu>menuitem label:disabled {
 	color: $gray2;
-	font-weight: 600;
 }
 
 menu>menuitem check:checked~label {
 	color: $accent;
-	font-weight: 600;
 }
 
 menubar>menuitem {
@@ -77,33 +75,33 @@ menuitem {
 
 .bar-workspace {
 	font-family: $nerdfont;
+	font-weight: bold;
+	color: $black;
 	background-color: $black;
 	border-radius: $corners;
 	margin: 3px;
-	padding: 5px 15px;
+	padding: 10px 16px;
 }
 
 .empty, .occupied, .current {
-	margin: 10px 0px;
-	font-size: 12px;
+	margin: 13px 0px;
+	font-size: 10px;
 }
 
 .empty {
-	color: $gray3;
 	background-color: $gray3;
 	border-radius: 20px;
 }
 
 .occupied {
-	color: $text;
 	background-color: $text;
 	border-radius: 20px;
 }
 
 .current {
-	color: $accent;
 	background-color: $accent;
-	padding: 15px 0px;
+	margin: 0px;
+	padding: 18px 0px;
 	border-radius: 10px;
 }
 
@@ -118,7 +116,7 @@ menuitem {
 }
 
 .bar-mic {
-	color: $red;
+	color: $accent;
 	padding: 4px;
 }
 
@@ -129,54 +127,6 @@ menuitem {
 	padding: 8px;
 	// padding: 12px 6px 9px 6px;
 
-}
-
-
-.bar-volume-off {
-	margin: -14px 0px -10px 0px;
-	font-size: 43px;
-	color: $gray2;
-	font-family: $nerdfont;
-}
-
-.bar-volume-on {
-	margin: -14px 0px -10px 0px;
-	font-size: 43px;
-	color: $accent;
-	font-family: $nerdfont;
-}
-
-.bar-volume-slider trough {
-	background-color: $background;
-	border-radius: $corners;
-	min-height: 80px;
-	min-width: 10px;
-	margin: .3rem 0 .3rem 0;
-}
-
-.bar-volume-slider trough highlight {
-	background-color: $accent;
-	border-radius: $corners;
-}
-
-.bar-brightness {
-	color: $accent;
-	margin: -9px 0px;
-	font-size: 40px;
-	font-family: $nerdfont;
-}
-
-.bar-brightness-slider trough {
-	background-color: $background;
-	border-radius: $corners;
-	min-height: 80px;
-	min-width: 10px;
-	margin: .3rem 0 .3rem 0;
-}
-
-.bar-brightness-slider trough highlight {
-	background-color: $accent;
-	border-radius: $corners;
 }
 
 

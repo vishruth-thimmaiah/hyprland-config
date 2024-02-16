@@ -9,7 +9,7 @@ color() {
 	if [[ "$line" == "off-line" ]]; then
 		echo "#cba6f7"
 	else
-		echo "#89dceb"
+		echo "#fab387"
 	fi
 }
 

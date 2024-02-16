@@ -1,9 +1,14 @@
 .menu_main {
 	background-color: rgba($color: $black, $alpha: 0.8);
 	border-radius: $corners;
-	margin: 5px 0px 5px 60px;
+	margin: 5px 0px 5px 65px;
 }
 
+scale trough slider {
+	background-color: rgba($color: #000000, $alpha: 0);
+	min-height: 20px;
+	min-width: 20px;
+}
 
 .menu-button-false {
 	background-color: $background;
@@ -22,10 +27,47 @@
 .menu-button {
 	background-color: inherit;
 	border-radius: $corners;
-	padding: 10px 50px 10px 50px;
+	padding: 10px 75px 10px 80px;
 	font-family: $nerdfont;
 	font-weight: bold;
 	font-size: 50px;
+}
+
+
+.bar-volume-off {
+	margin: -14px 10px -10px 10px;
+	font-size: 43px;
+	color: $gray2;
+	font-family: $nerdfont;
+}
+
+.bar-volume-on {
+	margin: -14px 10px -10px 10px;
+	font-size: 43px;
+	color: $accent;
+	font-family: $nerdfont;
+}
+
+.bar-volume-slider trough, .bar-brightness-slider trough {
+	background-color: $background;
+	border-radius: 7px;
+	min-height: 160px;
+	margin: 10px;
+	min-width: 20px;
+	margin: .3rem 0 .3rem 0;
+}
+
+.bar-volume-slider trough highlight, .bar-brightness-slider trough highlight  {
+	background-color: $accent;
+	border-radius: 7px;
+}
+
+
+.bar-brightness {
+	color: $accent;
+	margin: -9px 0px;
+	font-size: 40px;
+	font-family: $nerdfont;
 }
 
 .menu-system {
@@ -110,7 +152,7 @@
 	background-color: $foreground;
 	border-radius: $corners;
 	min-height: 20px;
-	min-width: 360px;
+	min-width: 300px;
 	margin: -10px 0px 20px 0px;
 }
 
@@ -118,7 +160,7 @@
 	background-color: $foreground;
 	border-radius: 7px;
 	min-height: 20px;
-	min-width: 360px;
+	min-width: 300px;
 	margin: -10px 0px 0px 0px;
 }
 
@@ -138,6 +180,7 @@
 	font-family: $font;
 	font-size: 20px;
 	color: $text;
+	margin: 0px 0px 0px -50px;
     font-family: $font;
 	font-weight: bold;
 }
@@ -186,12 +229,12 @@
 
 .menu-music-scale scale trough highlight {
 	background-color: $accent;
-	border-radius: 3px;
+	border-radius: 7px;
 }
 
 .menu-music-scale scale trough {
 	background-color: $foreground;
-	border-radius: 3px;
+	border-radius: 7px;
 	min-height: 10px;
 	min-width: 440px;
 }
@@ -252,13 +295,3 @@ calendar {
 }
 
 
-.screenshot_menu {
-	background-color: $background;
-	border-radius: $corners;
-	margin: 10px 0px 0px 0px;
-	font-size: 20px;
-}
-
-.screenshot_item {
-	padding: 20px;
-}

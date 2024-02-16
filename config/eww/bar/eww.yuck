@@ -1,16 +1,19 @@
 (defvar eww "/usr/bin/eww")
 
 
-
+(defvar show_no_of_windows false)
 (deflisten workspaces :initial "[]" "bash ~/.config/eww/bar/scripts/workspaces get")
 (deflisten current_workspace :initial "1" "bash ~/.config/eww/bar/scripts/workspaces get-active")
 (defwidget workspaces []
-(eventbox :onscroll "bash ~/.config/eww/bar/scripts/workspaces change {} ${current_workspace}" :class "workspaces-widget"
+(eventbox :onscroll "bash ~/.config/eww/bar/scripts/workspaces change {} ${current_workspace}"
+		  :onhover "eww update show_no_of_windows=true"
+		  :onhoverlost "eww update show_no_of_windows=false"
+		  :class "workspaces-widget"
 	(box :space-evenly false :orientation "v" :class "bar-workspace"
 		(for workspace in workspaces
 			(eventbox :onclick "hyprctl dispatch workspace ${workspace.id}"
 				(box :class "${workspace.id == current_workspace ? "current" : ""} ${workspace.windows > 0 ? "occupied" : "empty"}"
-					(label :text "")
+					(label :text "${show_no_of_windows && workspace.windows > 0 ? workspace.windows : ""}")
 					)
 				)
 			)
@@ -52,56 +55,6 @@
 				   :text { battery == "100" ? "" : battery }))))
 
 
-(defwidget bright []
-	(eventbox :onhover "${ eww } update bright=true"
-		:onhoverlost "${ eww } update bright=false"
-		(box :orientation "v"
-			:space-evenly "false"
-			:spacing 2
-			(revealer :transition "slideup"
-				:reveal bright
-				:duration "550ms"
-				(scale :class "bar-brightness-slider"
-					:value current-brightness
-					:tooltip "Brightness: ${ round(current-brightness, 0) }%"
-					:onchange "light -S {}"
-					:orientation "v"
-					:flipped true
-					:max 100
-			:min 0))
-			(label :class "bar-brightness"
-				:text ""))))
-
-(defpoll current-brightness :interval "1s" "light")
-(defvar bright false)
-
-
-(defwidget volume []
-	(eventbox :onhover "${eww} update volume_bar=true"
-			  :onhoverlost "${eww} update volume_bar=false"
-		(box :orientation "v"
-			 :space-evenly "false" 
-			 :spacing "2"
-			(revealer :transition "slideup"
-					  :reveal volume_bar
-					  :duration "550ms"
-		(scale :class "bar-volume-slider"
-					   :value current-volume
-					   :orientation "v"
-					   :flipped true
-					   :tooltip "Volume: ${current-volume}%"
-					   :max 100
-					   :min 0
-					   :onchange "amixer -D pulse sset Master {}%"))
-			(button	:onclick "pavucontrol & disown"
-					:class volumestat ""))))
-
-(defpoll current-volume :interval "1s" "amixer -D pulse sget Master | grep 'Left:' | awk -F'[][]' '{ print $2 }' | tr -d '%'")
-(defpoll volumestat :interval "1s" "echo bar-volume-$\(amixer -D pulse sget Master | grep 'Left:' | cut -d [ -f 3 | tr -d ])")
-(defvar volume_bar false)
-
-
-
 (defwidget control []
 	(box :orientation "v"
 		 :space-evenly false
@@ -109,10 +62,8 @@
 		 :class "bar-control"
 		(bat)
 		(mic)
-		
-		
-		(bright)
-		(volume)
+		;; (bright)
+		;; (volume)
 		(tray)))
 
 

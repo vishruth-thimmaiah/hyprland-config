@@ -31,7 +31,10 @@
 (defpoll AIRPLANE :interval "2s" `if [[ $(rfkill -no SOFT | tr -d "blocked\n") ]]; then echo true; else echo false; fi`)
 (defpoll LOCK :interval "5s" `if [[ -f /tmp/lockscr ]]; then echo true; else echo false; fi`)
 
+(defpoll current-brightness :interval "1s" "light")
 
+(defpoll current-volume :interval "1s" "amixer -D pulse sget Master | grep 'Left:' | awk -F'[][]' '{ print $2 }' | tr -d '%'")
+(defpoll volume-mute :interval "1s" "echo $\(amixer -D pulse sget Master | grep 'Left:' | cut -d [ -f 3 | tr -d ])")
 
 
 (defwidget menu-notify []
@@ -141,9 +144,10 @@
 			(box :orientation "v"
 				 :space-evenly false
 				 :valign "start"
-				(box :valign "start"
+				(box :valign "fill"
 					 :vexpand true
 					 :orientation "h"
+					:space-evenly false
 					(box :orientation "v"
 						 :valign "start"
 						(menu-nightlight)
@@ -151,7 +155,36 @@
 					(box :orientation "v"
 						 :valign "start"
 						(menu-power)
-						(menu-notify)))
+						(menu-notify))
+					(box
+						:orientation "v"
+						:space-evenly false
+						(scale :class "bar-volume-slider"
+							:value current-volume
+							:orientation "v"
+							:flipped true
+							:tooltip "Volume: ${current-volume}%"
+							:max 100
+							:min 0
+							:onchange "amixer -D pulse sset Master {}%")
+						(button	:onclick "pavucontrol & disown"
+							:class "bar-volume-${volume-mute}" ""))
+					(box
+						:orientation "v"
+						:space-evenly false
+						(label
+							:class "bar-brightness"
+						:text "")
+						(scale :class "bar-brightness-slider"
+							:value current-brightness
+							:tooltip "Brightness: ${ round(current-brightness, 0) }%"
+							:onchange "light -S {}"
+							:orientation "v"
+							:flipped true
+							:max 100
+						:min 0)))
+
+
 				(menu-storage)
 				(menu-system)
 				(menu-music)
@@ -173,7 +206,7 @@
 (defwindow menu
 			   :namespace "menu"
 			   :geometry
-			   (geometry :x "-56px"
+			   (geometry :x "-62px"
 						 :y "0" 
 						 :anchor "left center"
 						 :height "100%"
@@ -194,7 +227,7 @@
 (defwindow background :stacking "overlay"
 					  :screen 1
 					  :namespace "dashboard"
-					  :geometry (geometry :x 0 :y 0 :anchor "right center" :width "1920px" :height "1080px")
+					  :geometry (geometry :x 0 :y 0 :anchor "left center" :width "1920px" :height "1080px")
 					  :focusable false
 					  :stacking "overlay"
 					  :hexpand true
@@ -204,37 +237,3 @@
 
 
 
-(defvar screenshot_rev false)
-(defwidget screenshot-notify []
-	(box :halign "center"
-		 :class "screenshot_main"
-		 :space-evenly "false"
-		 :orientation "v"
-		(revealer :transition "slidedown"
-				  :duration "700ms"
-				  :reveal screenshot_rev
-			(box :space-evenly true
-				 :orientation "h"
-				 :class "screenshot_menu"
-				(button :onclick "bash -c \"eww update screenshot_rev=false; eww close screenshot; sleep 1; grim\" & disown"
-						:class "screenshot_item"
-						"")
-				(button :onclick "bash -c \"eww update screenshot_rev=false; eww close screenshot; sleep 1; grim -g \\\"$(hyprctl activewindow -j |jq '.at[0]'),$(hyprctl activewindow -j |jq '.at[1]') $(hyprctl activewindow -j |jq '.size[0]')x$(hyprctl activewindow -j |jq '.size[1]')\\\"\" & disown"
-						:class "screenshot_item"
-						"")
-				(button :onclick "bash -c 'eww update screenshot_rev=false; eww close screenshot; sleep 1; grim -g \"$(slurp)\"' & disown"
-						:class "screenshot_item"
-						"")))))
-
-(defwindow screenshot :stacking "overlay"
-				  	  :focusable "false" 
-				      :namespace "indicator-bright"
-					  :screen 1
-					  :geometry
-					  (geometry :x 0
-					  			:y 0
-								:anchor "top center"
-								:width 50
-								:height 45)
-					  :monitor 0
-	(screenshot-notify))

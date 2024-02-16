@@ -1,2 +1,3 @@
 (include "./bar/eww.yuck")
 (include "./menu/eww.yuck")
+(include "./indicators/eww.yuck")

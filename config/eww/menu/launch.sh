@@ -18,13 +18,4 @@ run_eww() {
 
 if [[ "$1" == "menu" ]]; then
 	run_eww
-elif [[ "$1" == "screenshot" ]]; then
-	if [[ "$(eww get screenshot_rev)" == false ]]; then
-		eww open screenshot
-		eww update screenshot_rev=true
-	else
-		eww update screenshot_rev=false
-		sleep 1
-		eww close screenshot
-	fi
 fi

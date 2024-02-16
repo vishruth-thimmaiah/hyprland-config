@@ -28,7 +28,8 @@ $accent2: $mauve;
 
 $corners: 12px;
 
-$font: Yikes;
+$font: Maple Mono NF;
+// $nerdfont: $font;
 $nerdfont: FiraCode Nerd Font Mono;
 
 * {
@@ -45,3 +46,4 @@ tooltip.background {
 
 @import "bar/eww.scss";
 @import "menu/eww.scss";
+@import "indicators/eww.scss";

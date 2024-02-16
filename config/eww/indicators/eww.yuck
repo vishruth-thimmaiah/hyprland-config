@@ -1,0 +1,109 @@
+(defvar screenshot_rev false)
+(defwidget screenshot-notify []
+	(revealer
+			  :duration "300ms"
+			  :reveal screenshot_rev
+			  :transition "slideright"
+		(box :space-evenly true
+			 :orientation "v"
+			 :class "screenshot_menu"
+			(button :class "screenshot_item"
+					:onclick "bash -c \"eww update screenshot_rev=false; eww close screenshot; sleep 0.5; grim\" & disown"
+					:tooltip "Screenshot Screen"
+					"󱣵")
+			(button :class "screenshot_item"
+					:onclick "bash -c \"eww update screenshot_rev=false; eww close screenshot; sleep 0.5; grim -g \\\"$(hyprctl activewindow -j |jq '.at[0]'),$(hyprctl activewindow -j |jq '.at[1]') $(hyprctl activewindow -j |jq '.size[0]')x$(hyprctl activewindow -j |jq '.size[1]')\\\"\" & disown"
+					:tooltip "Screenshot Window"
+					"󱂬")
+			(button :class "screenshot_item"
+					;; :onclick "bash -c 'eww update screenshot_rev=false; eww close screenshot; sleep 1; grim -g \"$(slurp)\"' & disown"
+					:onclick "bash -c 'eww update screenshot_rev=false; eww close screenshot; sleep 0.5; XDG_CURRENT_DESKTOP=sway flameshot gui' & disown"
+					:tooltip "Screenshot Area"
+					""))))
+
+
+(defwindow screenshot :stacking "overlay"
+				  	  :focusable "false" 
+				      :namespace "screenshot-tool"
+					  :screen 1
+					  :geometry
+					  (geometry :x -62
+					  			:y 0
+								:anchor "left center"
+								:width 2
+								:height 45)
+					  :monitor 0
+	(screenshot-notify))
+
+
+(defvar volume_rev false)
+(defwidget volume []
+	(revealer
+			  :duration "300ms"
+			  :reveal volume_rev
+			  :transition "slideright"
+	(box
+		:halign "center"
+		:class "sys-controls"
+		:space-evenly "false" 
+		:orientation "v"
+		(label
+			:class "volume-indicator-label"
+			:text { volume-mute == "on" ? "" : "" } 
+		)
+		(scale
+			:class "volume-indicator-${volume-mute}"
+			:value current-volume
+			:orientation "v"
+			:max 100
+			:flipped true
+			:min 0
+			:onchange "amixer -D pulse sset Master {}%"))))
+;;-------------------------------------------------------------Volume
+
+(defvar brightness_rev false)
+(defwidget brightness []
+	(revealer
+			  :duration "300ms"
+			  :reveal brightness_rev
+			  :transition "slideright"
+	(box
+		:halign "center"
+		:class "sys-controls"
+		:space-evenly "false" 
+		:orientation "v"
+		(label
+			:class "brightness-indicator-label"
+			:text "" 
+		)
+		(scale
+			:class "brightness-indicator-on"
+			:value current-brightness
+			:orientation "v"
+			:max 100
+			:flipped true
+			:min 0
+			:onchange "light -S {}"))))
+
+;;------------------------------------------------------------Windows
+
+;; volume
+(defwindow volume :stacking "overlay" :focusable "false" :screen 1
+	:geometry (geometry :x -62
+		:y 0
+		:anchor "left center"
+		:width 2
+		:height 45)
+	:monitor 0
+	(volume)
+)
+;; brighness
+(defwindow brightness :stacking "overlay" :focusable "false" :screen 1
+	:geometry (geometry :x -62
+		:y 0
+		:anchor "left center"
+		:width 2
+		:height 45)
+	:monitor 0
+	(brightness)
+)

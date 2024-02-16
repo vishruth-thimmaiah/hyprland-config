@@ -1,0 +1,41 @@
+.screenshot_menu {
+	background-color: $black;
+	border-radius: $corners;
+	margin: 0px 0px 120px 13px;
+	font-size: 30px;
+}
+
+.screenshot_item {
+	padding: 5px 16px 5px 12px;
+	color: $text;
+}
+
+.sys-controls {
+	border-radius: 10px;
+	background-color: $black;
+	margin: 0px 10px 110px 13px;
+}
+
+.volume-indicator-label, .brightness-indicator-label {
+	font-family: $nerdfont;
+	font-size: 35px;
+	margin: 0px 11px;
+}
+
+.volume-indicator-on trough, .volume-indicator-off trough, .brightness-indicator-on trough {
+	background-color: $background;
+	border-radius: 7px;
+	min-height: 100px;
+	min-width: 20px;
+	margin: 5px 13px;
+}
+
+.volume-indicator-on trough highlight, .brightness-indicator-on trough highlight  {
+	background-color: $accent;
+	border-radius: 7px;
+}
+
+.volume-indicator-off trough highlight {
+	background-color: $gray3;
+	border-radius: 7px;
+}
