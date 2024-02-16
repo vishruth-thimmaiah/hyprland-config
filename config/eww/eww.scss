@@ -28,9 +28,12 @@ $accent2: $mauve;
 
 $corners: 12px;
 
+// https://github.com/subframe7536/maple-font
 $font: Maple Mono NF;
-// $nerdfont: $font;
+
+// https://github.com/ryanoasis/nerd-fonts
 $nerdfont: FiraCode Nerd Font Mono;
+// $nerdfont: $font;
 
 * {
 	all: unset;

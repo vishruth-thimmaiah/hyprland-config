@@ -30,6 +30,7 @@
 * **rofi**
 * **gammastep**
 * **chayang**
+* **imagemagick**
 
 ---
 
@@ -37,7 +38,9 @@
 
 #### 1. Install packages on Arch with [yay](https://github.com/Jguer/yay):
 ```bash
-yay -S hyprland eww-tray-wayland-git swww playerctl dunst swaylock-effects-git swayidle sway-audio-idle-inhibit-git cliphist light rofi-lbonn-wayland chayang gammastep
+yay -S hyprland eww-tray-wayland-git swww playerctl dunst swaylock-effects-git swayidle sway-audio-idle-inhibit-git cliphist light rofi-lbonn-wayland chayang gammastep imagemagick
+# Fonts
+yay -S ttf-maple ttf-firacode-nerd
 ```
 #### 2. clone repo:
 ```bash
