@@ -15,7 +15,7 @@ depends = []
 "config/alacritty/alacritty.toml" = { target = "~/.config/alacritty/alacritty.toml", type = "symbolic" }
 
 [hyprland]
-depends = ["eww", "swaylock", "swayidle", "dunst", "gammastep", "rofi", "anyrun", "wlogout"]
+depends = ["eww", "dunst", "gammastep", "rofi", "anyrun", "wlogout"]
 [hyprland.files]
 "config/hypr/" = { target = "~/.config/hypr/", type = "symbolic" }
 
@@ -37,16 +37,6 @@ depends = []
 "firefox/chrome/userChrome.css" = { target = "", type = "symbolic" }
 [firefox.variables]
 background="img/CatppuccinMocha-Planets.webp"
-
-[swaylock]
-depends = []
-[swaylock.files]
-"config/swaylock/" = { target = "~/.config/swaylock/", type = "symbolic" }
-
-[swayidle]
-depends = []
-[swayidle.files]
-"config/swayidle/" = { target = "~/.config/swayidle/", type = "symbolic" }
 
 [dunst]
 depends = []

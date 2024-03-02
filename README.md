@@ -23,8 +23,8 @@
 * **swww**
 * **playerctl**
 * **dunst**
-* **swaylock**
-* **swayidle**
+* **hyprlock**
+* **hypridle**
 * **cliphist**
 * **light**
 * **rofi**
@@ -38,7 +38,7 @@
 
 #### 1. Install packages on Arch with [yay](https://github.com/Jguer/yay):
 ```bash
-yay -S hyprland eww-tray-wayland-git swww playerctl dunst swaylock-effects-git swayidle sway-audio-idle-inhibit-git cliphist light rofi-lbonn-wayland chayang gammastep imagemagick
+yay -S hyprland eww-tray-wayland-git swww playerctl dunst hyprlock-git hypridle-git cliphist light rofi-lbonn-wayland chayang gammastep imagemagick
 # Fonts
 yay -S ttf-maple ttf-firacode-nerd
 ```
