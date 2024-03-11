@@ -12,7 +12,8 @@
 
 ---
 # Preview
-![image1](https://github.com/Vishruth-Thimmaiah/hyprland-config/assets/111981004/bcd8f451-d77c-4ebe-a4ef-ca5aee8f62ec)
+
+![image1](https://github.com/vishruth-thimmaiah/hyprland-config/assets/111981004/a147ca5b-1e5b-4ab3-ab67-4f03c0c29ca1)
 ![image2](https://github.com/Vishruth-Thimmaiah/hyprland-config/assets/111981004/6375730d-2b94-495d-aef4-50d2ac5ad030)
 ![image3](https://github.com/Vishruth-Thimmaiah/hyprland-config/assets/111981004/e4e3d42c-9af9-4cb3-a9de-0402f0380470)
 
