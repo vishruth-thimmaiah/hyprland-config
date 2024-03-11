@@ -1,6 +1,6 @@
 {
     "label" : "lock",
-    "action" : "systemctl suspend",
+    "action" : "hyprlock",
     "text" : "Lock",
     "keybind" : "l"
 }
