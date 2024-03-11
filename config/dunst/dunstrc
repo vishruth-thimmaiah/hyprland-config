@@ -389,7 +389,8 @@
 #
 
 [hide-icon]
-appname = "NetworkManager Applet"
+# appname = "NetworkManager Applet"
+icon = "nm-*"
 new_icon = "/usr/share/icons/candy-icons/apps/scalable/network-idle.svg"
 #
 # Disable the transient hint so that idle_threshold cannot be bypassed from the
