@@ -15,7 +15,7 @@ depends = []
 "config/alacritty/alacritty.toml" = { target = "~/.config/alacritty/alacritty.toml", type = "symbolic" }
 
 [hyprland]
-depends = ["eww", "dunst", "gammastep", "rofi", "anyrun", "wlogout"]
+depends = ["eww", "dunst", "gammastep", "rofi", "anyrun", "wlogout", "converse"]
 [hyprland.files]
 "config/hypr/" = { target = "~/.config/hypr/", type = "symbolic" }
 
@@ -67,3 +67,8 @@ depends = []
 [wlogout.files]
 "config/wlogout/" = { target = "~/.config/wlogout/", type = "symbolic" }
 "bin/wlogout" = ""
+
+[converse]
+depends = []
+[converse.files]
+"config/converse/style.css" = { target = "~/.config/converse/style.css", type = "symbolic"  }

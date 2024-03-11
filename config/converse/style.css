@@ -1,0 +1,84 @@
+.main-window {
+	border-radius: 10px;
+	background-color: rgba(24, 24, 37, 0.8);
+}
+
+.label-model {
+	background-color: #313244;
+	font-size: 17px;
+	margin: 5px 30px 5px 10px;
+	border-radius: 4px 10px 10px 10px;
+	padding: 10px;
+}
+
+.label-model-code {
+	background-color: #272736;
+	font-size: 17px;
+	font-family: monospace;
+	border-radius: 5px;
+	margin: 10px 5px;
+	padding: 5px;
+}
+
+.code-copy {
+	background-color: #272736;
+}
+
+.label-user {
+	color: #313244;
+	background-color: #a6e3a1;
+	font-size: 17px;
+	margin: 15px 10px 5px 30px;
+	border-radius: 10px 4px 10px 10px;
+	padding: 10px;
+}
+
+.control-area {
+	background-color: #11111b;
+	border-radius: 10px;
+	margin: 5px;
+	padding: 5px;
+}
+
+.entry {
+	font-size: 20px;
+	padding: 5px;
+	margin: 5px;
+}
+
+.entry:disabled {
+}
+
+.send-button {
+	background-color: unset;
+	margin: 5px 2px;
+	padding: 5px;
+	color: #a6e3a1;
+	font-size: 30px;
+	transition: color 0.8s ease;
+}
+
+.send-button:disabled {
+	color: #1e1e2e;
+}
+
+.send-button:hover {
+	color: #fab387;
+	transition: color 0.8s ease;
+	background-color: unset;
+}
+
+.label-user selection {
+	color: #a6e3a1;
+	background-color: rgba(17, 17, 27, 0.8);
+}
+
+.model-combobox {
+	font-size: 20px;
+	font-weight: bold;
+	margin: 5px;
+}
+
+.truncate-chat {
+	margin: 5px;
+}
