@@ -38,7 +38,7 @@
 
 #### 1. Install packages on Arch with [yay](https://github.com/Jguer/yay):
 ```bash
-yay -S hyprland eww-git swww playerctl dunst hyprlock-git hypridle-git cliphist light rofi-lbonn-wayland chayang gammastep imagemagick
+yay -S hyprland eww-git swww playerctl dunst hyprlock hypridle cliphist brightnessctl rofi-lbonn-wayland chayang gammastep imagemagick
 # Fonts
 yay -S ttf-maple ttf-firacode-nerd
 ```
