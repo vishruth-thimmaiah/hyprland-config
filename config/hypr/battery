@@ -31,15 +31,15 @@ main (){
 					LIMIT=${LOWER_LIMIT}
 				else
 					LIMIT=0
-					light -O
-					light -S 20
+					brightness="$(brightnessctl g)"
+					brightnessctl s 10%
 				fi
 			fi
 		else
 			if [[ $POPUP_CLICKED == "y" ]]; then
 				POPUP_CLICKED=""
 				dunstify -C "$nid"
-				light -I
+				brightnessctl s "$brightness"
 			fi
 			if [[ $PERC -gt $UPPER_LIMIT ]]; then
 				LIMIT=${UPPER_LIMIT}

@@ -1,137 +1,94 @@
-# If you come from bash you might have to change your $PATH.
-
-export PATH=$HOME/.local/bin/:$PATH
-
-# variable exports
-
-export COLUMNS=$COLUMNS
-export EDITOR="nvim" 
-export LINES=$LINES
 export terminal=$(ps -p $(ps -p $$ -o ppid=) o args=)
-export BAT_THEME="Catppuccin-mocha"
-export FZF_DEFAULT_COMMAND='fd --hidden'
-export PAGER="bat"
-export TERMINFO="/usr/share/terminfo"
-export MAMBA_ROOT_PREFIX=~/environents/mamba
-# Show info depending on terminal used.
+
 if [[ $terminal =~ 'tmux.*' ]]; then
 	PF_COL1=1 PF_COL3=3 pfetch
 fi
 
-
+# Customise Cursor
 echo -ne '\e[5 q' # Use beam shape cursor on startup.
 preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
 
 
-# Path to your oh-my-zsh installation.
-export ZSH="$HOME/.oh-my-zsh"
-
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+	source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-# Set name of the theme to load
-ZSH_THEME="powerlevel10k/powerlevel10k"
 
-# Uncomment the following line to use case-sensitive completion.
-# CASE_SENSITIVE="true"
+# Plugins
+source ~/.zsh/powerlevel10k/powerlevel10k.zsh-theme
+source ~/.zsh/sudo/sudo.zsh
+source ~/.zsh/fancy-ctrl-z/fancy-ctrl-z.zsh
+source ~/.zsh/command-not-found/command-not-found.zsh
+source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-# Uncomment the following line to use hyphen-insensitive completion.
-# Case-sensitive completion must be off. _ and - will be interchangeable.
-# HYPHEN_INSENSITIVE="true"
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-# Uncomment one of the following lines to change the auto-update behavior
-# zstyle ':omz:update' mode disabled  # disable automatic updates
-# zstyle ':omz:update' mode auto      # update automatically without asking
-# zstyle ':omz:update' mode reminder  # just remind me to update when it's time
+# Completions
+_ls_colors="di=1;34:ln=35:so=32:pi=33:ex=31:bd=34;46:cd=34;43:su=30;41:sg=30;46:tw=30;42:ow=30;43"
 
-# Uncomment the following line to change how often to auto-update (in days).
-# zstyle ':omz:update' frequency 13
 
-# Uncomment the following line if pasting URLs and other text is messed up.
-# DISABLE_MAGIC_FUNCTIONS="true"
+zstyle ':completion:*:default' list-colors "${(s.:.)_ls_colors}"
+zstyle ':autocomplete:*' default-context history-incremental-search-backward
+zstyle ':completion:*' menu select
+zstyle ':completion:*' matcher-list 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' 'r:|=*' 'l:|=* r:|=*'
 
-# Uncomment the following line to disable colors in ls.
-# DISABLE_LS_COLORS="true"
+autoload -U compinit; compinit
 
-# Uncomment the following line to disable auto-setting terminal title.
-# DISABLE_AUTO_TITLE="true"
-# ZLE_RPROMPT_INDENT=0
+# Zsh History
+HISTFILE=~/.zsh_history
+HISTSIZE=10000
+SAVEHIST=10000
+WORDCHARS=''
 
-# Uncomment the following line to enable command auto-correction.
+setopt extended_history       # record timestamp of command in HISTFILE
+setopt hist_expire_dups_first # delete duplicates first when HISTFILE size exceeds HISTSIZE
+setopt hist_ignore_dups       # ignore duplicated commands history list
+setopt hist_ignore_space      # ignore commands that start with space
+setopt hist_verify            # show command with history expansion to user before running it
+setopt share_history          # share command history data
+
+# Start typing + [Up-Arrow] - fuzzy find history forward
+autoload -U up-line-or-beginning-search
+zle -N up-line-or-beginning-search
+
+bindkey -M viins "^[[A" up-line-or-beginning-search
+bindkey -M viins "${terminfo[kcuu1]}" up-line-or-beginning-search
+
+autoload -U down-line-or-beginning-search
+zle -N down-line-or-beginning-search
+
+bindkey -M viins "^[[B" down-line-or-beginning-search
+bindkey -M viins "${terminfo[kcud1]}" down-line-or-beginning-search
+
+
+# Correction
 ENABLE_CORRECTION="true"
 setopt nocorrectall
 setopt correct
 export SPROMPT="Correct $fg[red]%R$reset_color to $fg[green]%r$reset_color? [Yes, No, Abort, Edit] "
 
-# Uncomment the following line to display red dots whilst waiting for completion.
-# You can also set it to another string to have that shown instead of the default red dots.
-# e.g. COMPLETION_WAITING_DOTS="%F{yellow}waiting...%f"
-# Caution: this setting can cause issues with multiline prompts in zsh < 5.7.1 (see #5765)
-# COMPLETION_WAITING_DOTS="true"
 
-# Uncomment the following line if you want to disable marking untracked files
-# under VCS as dirty. This makes repository status check for large repositories
-# much, much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
-
-# Uncomment the following line if you want to change the command execution time
-# stamp shown in the history command output.
-# You can set one of the optional three formats:
-# "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-# or set a custom format using the strftime function format specifications,
-# see 'man strftime' for details.
-# HIST_STAMPS="mm/dd/yyyy"
-
-# Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
-
-# Which plugins would you like to load?
-# Standard plugins can be found in $ZSH/plugins/
-# Custom plugins may be added to $ZSH_CUSTOM/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
-plugins=(
-    git
-	archlinux
-    zsh-autosuggestions
-    python
-    command-not-found
-    sudo
-    web-search
-    fancy-ctrl-z
-    zsh-syntax-highlighting
-	# zsh-completion-generator
-)
-
-source $ZSH/oh-my-zsh.sh
-
-zstyle ':completion::complete:*' use-cache 1
-
-
-# User configuration
-
-
-# Change cursor shape for different vi modes.
+# Keybinds
 bindkey -v
 bindkey -v '^[;' autosuggest-accept
 bindkey -v '^N' forward-word
 ZSH_AUTOSUGGEST_PARTIAL_ACCEPT_WIDGETS+=(forward-char)
 function zle-keymap-select {
-  if [[ ${KEYMAP} == vicmd ]] ||
-     [[ $1 = 'block' ]]; then
-    echo -ne '\e[1 q'
-  elif [[ ${KEYMAP} == main ]] ||
-       [[ ${KEYMAP} == viins ]] ||
-       [[ ${KEYMAP} = '' ]] ||
-       [[ $1 = 'beam' ]]; then
-    echo -ne '\e[5 q'
-  fi
+	if [[ ${KEYMAP} == vicmd ]] ||
+		[[ $1 = 'block' ]]; then
+		echo -ne '\e[1 q'
+	elif [[ ${KEYMAP} == main ]] ||
+		[[ ${KEYMAP} == viins ]] ||
+		[[ ${KEYMAP} = '' ]] ||
+		[[ $1 = 'beam' ]]; then
+		echo -ne '\e[5 q'
+	fi
 }
 zle -N zle-keymap-select
 
 
+# Custom Functions
 function fs() {
 	tmp="$(mktemp -t "yazi-cwd.XXXXX")"
 	yazi --cwd-file="$tmp"
@@ -141,17 +98,28 @@ function fs() {
 	rm -f -- "$tmp"
 }
 
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
+# Yank to the system clipboard
+function vi-yank-xclip {
+    zle vi-yank
+   echo "$CUTBUFFER" | wl-copy
+}
 
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-#
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
+zle -N vi-yank-xclip
+bindkey -M vicmd 'y' vi-yank-xclip
+
+# Environment Variables
+export COLUMNS=$COLUMNS
+export EDITOR="nvim" 
+export LINES=$LINES
+export BAT_THEME="Catppuccin-mocha"
+export FZF_DEFAULT_COMMAND='fd --hidden'
+export PAGER="bat"
+export DELTA_PAGER="less"
+export TERMINFO="/usr/share/terminfo"
+export MAMBA_ROOT_PREFIX=~/environents/mamba
+
+
+# Aliases
 alias nvi="neovide"
 alias conda='micromamba'
 alias mariadb="mariadb -p"
@@ -164,16 +132,22 @@ alias qa="exit"
 alias clr="clear;pfetch"
 alias cd="nocorrect z"
 alias ls="eza --icons"
+alias lsa="eza -lah --icons --total-size"
 alias tree="eza --icons --tree"
-# alias fs="yazi"
+alias ..="cd .."
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+# Path
+export PATH="$HOME/go/bin:$PATH"
+
+
+# zoxide
+eval "$(zoxide init zsh)"
+
 
 # FZF
 source /usr/share/fzf/key-bindings.zsh
 
-# pip zsh completion start
+
 function _pip_completion {
 	local words cword
 	read -Ac words
@@ -184,22 +158,5 @@ function _pip_completion {
 	}
 compctl -K _pip_completion pip3
 compctl -K _pip_completion pip
-# pip zsh completion end
 
-# Yarn
-export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
-
-#spicetify
-export PATH=$PATH:$HOME/.spicetify
-
-# Extra completions
-fpath=( $HOME/.oh-my-zsh/completions $fpath )
-compdef _gnu_generic hyprland neofetch
-zstyle ':autocomplete:*' default-context history-incremental-search-backward
-
-# zoxide
-eval "$(zoxide init zsh)"
-
-# Micromamba
 eval "$(micromamba shell hook --shell zsh)"
-

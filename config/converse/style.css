@@ -3,6 +3,16 @@
 	background-color: rgba(24, 24, 37, 0.8);
 }
 
+.tab-page {
+	background: none;
+	border: none;
+}
+
+.tab-page header {
+	background: #11111b;
+	margin: 4px;
+}
+
 .label-model {
 	background-color: #313244;
 	font-size: 17px;
@@ -22,6 +32,7 @@
 
 .code-copy {
 	background-color: #272736;
+	padding: 2px;
 }
 
 .label-user {
@@ -46,9 +57,6 @@
 	margin: 5px;
 }
 
-.entry:disabled {
-}
-
 .send-button {
 	background-color: unset;
 	margin: 5px 2px;
@@ -65,7 +73,18 @@
 .send-button:hover {
 	color: #fab387;
 	transition: color 0.8s ease;
-	background-color: unset;
+	background-color: #11111b;
+}
+
+.send-button:active {
+	background: unset;
+	color: #a6e3a1;
+}
+
+.send-button:focus {
+	border-width: 0;
+	box-shadow: red;
+	outline-width: 0px;
 }
 
 .label-user selection {
@@ -79,6 +98,6 @@
 	margin: 5px;
 }
 
-.truncate-chat {
+.truncate-chat, .add-tab {
 	margin: 5px;
 }

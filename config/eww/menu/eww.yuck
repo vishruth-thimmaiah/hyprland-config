@@ -7,9 +7,9 @@
 (defpoll calendar_month :interval "10h" "date '+%m'")
 (defpoll calendar_year :interval "10h" "date '+%Y'")
 
-(defpoll DAEMON :interval "1s" `playerctl --player spotify,vlc,firefox status`)
-(deflisten SONG "playerctl --player spotify,vlc,firefox metadata --format '{{trunc(title, 15)}}' --follow")
-(deflisten ARTIST "playerctl --player spotify,vlc,firefox metadata --format '{{trunc(artist, 25)}}' --follow")
+(defpoll DAEMON :interval "1s" `playerctl --player spotify,vlc,firefox,brave status`)
+(deflisten SONG "playerctl --player spotify,vlc,firefox,brave metadata --format '{{trunc(title, 15)}}' --follow")
+(deflisten ARTIST "playerctl --player spotify,vlc,firefox,brave metadata --format '{{trunc(artist, 25)}}' --follow")
 (defpoll CURRENT :interval "1s" `menu/scripts/music_info --time`)
 (defpoll COVER :interval "1s" `menu/scripts/music_info --cover`)
 (defpoll TTIME :interval "1s" `menu/scripts/music_info --ttime`)
@@ -31,7 +31,7 @@
 (defpoll AIRPLANE :interval "2s" `if [[ $(rfkill -no SOFT | tr -d "blocked\n") ]]; then echo true; else echo false; fi`)
 (defpoll LOCK :interval "5s" `if [[ -f /tmp/lockscr ]]; then echo true; else echo false; fi`)
 
-(defpoll current-brightness :interval "1s" "light")
+(defpoll current-brightness :interval "1s" "echo $(( $(brightnessctl g)*100 / $(brightnessctl m) ))")
 
 (defpoll current-volume :interval "1s" "amixer -D pulse sget Master | grep 'Left:' | awk -F'[][]' '{ print $2 }' | tr -d '%'")
 (defpoll volume-mute :interval "1s" "echo $\(amixer -D pulse sget Master | grep 'Left:' | cut -d [ -f 3 | tr -d ])")
@@ -113,7 +113,7 @@
 				(button :class "menu-music-pause" :onclick "menu/scripts/music_info --toggle" { DAEMON == "Playing" ? "" : "" }) ;
 				(button :class "menu-music-next" :onclick "menu/scripts/music_info --next" ""))
 			(box :class "menu-music-scale" :halign "center" :vexpand "false" :hexpand "false" 
-				(scale :onchange "playerctl --player spotify,vlc,firefox position {}" :min 0 :active "true" :max TTIME :value CURRENT))))
+				(scale :onchange "playerctl --player spotify,vlc,firefox,brave position {}" :min 0 :active "true" :max TTIME :value CURRENT))))
 
 
 (defwidget menu-weather []
@@ -178,7 +178,7 @@
 						(scale :class "bar-brightness-slider"
 							:value current-brightness
 							:tooltip "Brightness: ${ round(current-brightness, 0) }%"
-							:onchange "light -S {}"
+							:onchange "brightnessctl s {}%"
 							:orientation "v"
 							:flipped true
 							:max 100
@@ -192,21 +192,12 @@
 				(menu-calendar)))))
 
 (defvar open-menu false)
-(defwidget animate-menu []
-	(box :class "menu-animate"
-		 :space-evenly "false"
-		 :orientation "h"
-	(revealer :transition "slideright"
-			  :reveal open-menu
-			  :duration "500ms"
-		(menu))))
-
 
 ; Window
 (defwindow menu
 			   :namespace "menu"
 			   :geometry
-			   (geometry :x "-62px"
+			   (geometry :x "0"
 						 :y "0" 
 						 :anchor "left center"
 						 :height "100%"
@@ -217,7 +208,7 @@
 			   :stacking "overlay"
 			   
 			   
-			   (animate-menu))
+			   (menu))
 
 
 

@@ -1,7 +1,7 @@
 #!/bin/bash
 
 ## Get data
-STATUS="$(playerctl --player spotify,firefox status 2>&1)"
+STATUS="$(playerctl --player spotify,firefox,brave status 2>&1)"
 
 ## Get status
 get_status() {
@@ -14,7 +14,7 @@ get_status() {
 
 ## Get song
 get_song() {
-	song=$(playerctl --player spotify,vlc,firefox metadata --format '{{title}}')
+	song=$(playerctl --player spotify,vlc,firefox,brave metadata --format '{{title}}')
 	if [[ -z "$song" ]]; then
 		echo "Offline"
 	else
@@ -29,7 +29,7 @@ get_song() {
 
 ## Get artist
 get_artist() {
-	artist=$(playerctl --player spotify,vlc,firefox metadata --format '{{artist}}')
+	artist=$(playerctl --player spotify,vlc,firefox,brave metadata --format '{{artist}}')
 	if [[ -z "$artist" ]]; then
 		echo ""
 	else
@@ -39,7 +39,7 @@ get_artist() {
 
 ## Get time
 get_ttime() {
-	ttimem=$(playerctl --player spotify,vlc,firefox metadata --format '{{mpris:length}}')
+	ttimem=$(playerctl --player spotify,vlc,firefox,brave metadata --format '{{mpris:length}}')
 	ttime=$((ttimem/1000000))
 	if [[ -z "$ttime" ]]; then
 		echo "0"
@@ -49,7 +49,7 @@ get_ttime() {
 }
 
 get_time() {
-	time=$(playerctl --player spotify,vlc,firefox position)
+	time=$(playerctl --player spotify,vlc,firefox,brave position)
 	if [[ -z "$time" ]]; then
 		echo "0:00"
 	else
@@ -60,7 +60,7 @@ get_time() {
 ## Get cover
 get_cover() {
 	if [[ "$STATUS" == *"Playing"* ]];then
-		cover="$(playerctl --player spotify,vlc,firefox metadata --format '{{mpris:artUrl}}')"
+		cover="$(playerctl --player spotify,vlc,firefox,brave metadata --format '{{mpris:artUrl}}')"
 		filePath="/tmp/media-img/$(echo "$cover" | rev | cut -d "/" -f 1 | rev)"
 		if [[ ! -f "$filePath" ]]; then
 			[[ ! -d /tmp/media-img/  ]] && mkdir /tmp/media-img
@@ -88,9 +88,9 @@ elif [[ "$1" == "--ttime" ]]; then
 elif [[ "$1" == "--cover" ]]; then
 	get_cover
 elif [[ "$1" == "--toggle" ]]; then
-	playerctl --player spotify,vlc,firefox play-pause
+	playerctl --player spotify,vlc,firefox,brave play-pause
 elif [[ "$1" == "--next" ]]; then
-	{ playerctl --player spotify,vlc,firefox next; get_cover; }
+	{ playerctl --player spotify,vlc,firefox,brave next; get_cover; }
 elif [[ "$1" == "--prev" ]]; then
-	{ playerctl --player spotify,vlc,firefox previous; get_cover; }
+	{ playerctl --player spotify,vlc,firefox,brave previous; get_cover; }
 fi

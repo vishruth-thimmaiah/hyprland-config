@@ -5,46 +5,41 @@ VFILE="/tmp/eww_launch.volume"
 BFILE="/tmp/eww_launch.bright"
 
 screenshot() {
-	if [[ "$(eww get screenshot_rev)" == false ]]; then
+	if [[ "$(eww active-windows | grep screenshot)" != "screenshot: screenshot" ]]; then
 		eww open screenshot
-		eww update screenshot_rev=true
 	else
-		eww update screenshot_rev=false
 		sleep 0.2
 		eww close screenshot
 	fi
 }
 
 volume() {
-	if [[ "$(eww get volume_rev)" == false ]]; then
+	if [[ "$(eww active-windows | grep volume)" != "volume: volume" ]]; then
 		touch "$VFILE"
+		eww close brightness
 		eww open volume
-		eww update volume_rev=true
-		eww update brightness_rev=false
 	fi
 	volI="$( amixer -D pulse sget Master | grep 'Left:' | awk -F'[][]' '{ print $2 }' | tr -d '%')"
 	eww  update current-volume="$volI"
 	date +%s > "$VFILE"
 	sleep 5
 	if [[ $(("$(date +%s)" - 5)) -ge "$(cat $VFILE)" ]]; then
-		eww update volume_rev=false
 		rm "$VFILE"
+		eww close volume
 	fi
 }
 
 brightness() {
-	if [[ "$(eww get brightness_rev)" == false ]]; then
+	if [[ "$(eww active-windows | grep brightness)" != "brightness: brightness" ]]; then
 		touch "$BFILE"
 		eww open brightness
-		eww update brightness_rev=true
-		eww update volume_rev=false
+		eww close volume
 	fi
-	brightI="$(light)"
+	brightI="$(( $(brightnessctl g)*100 / $(brightnessctl m) ))"
 	eww update current-brightness="$brightI"
 	date +%s > "$BFILE"
 	sleep 5
 	if [[ $(("$(date +%s)" - 5)) -ge "$(cat $BFILE)" ]]; then
-		eww update brightness_rev=false
 		eww close brightness
 		rm "$BFILE"
 	fi

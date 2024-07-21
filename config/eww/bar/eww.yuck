@@ -22,7 +22,9 @@
 )
 
 (defwidget tray []
-	(systray :pack-direction "ttb"
+	(systray :orientation "v"
+			 :space-evenly true
+			 :spacing 10
 			 :icon-size 24
 			 :class "bar-tray"))
 

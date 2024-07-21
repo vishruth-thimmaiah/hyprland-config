@@ -10,7 +10,6 @@ run_eww() {
 
 	else
 		eww update open-menu=false
-		sleep 0.4
 		eww close background menu
 	fi
 }

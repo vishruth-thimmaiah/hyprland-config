@@ -143,3 +143,17 @@ menupopup#viewSidebarMenu menuitem.menuitem-iconic.webextension-menuitem#menubar
 	transition: all 0.3s;
 	transition-delay: 0.15s;
 }
+
+#statuspanel {
+	margin: 5px !important;
+	box-shadow: none !important;
+	border: 2px white !important;
+
+	label {
+		background: #11111b !important;
+		padding: 5px 10px !important;
+		/* box-shadow: none !important; */
+		border: 2px white !important;
+		border-radius: 10px !important;
+	}
+}
