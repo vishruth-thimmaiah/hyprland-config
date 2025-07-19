@@ -27,7 +27,7 @@
     width = (300, 600)
 
     # The maximum height of a single notification, excluding the frame.
-    height = 300
+    height = (80, 400)
 
     # Position the notification
     origin = bottom-right

@@ -1,161 +1,173 @@
 .bar {
-	background-color: rgba($color: $background, $alpha: 0);
-	border-radius: $corners;
-	margin: 1px 0px;
+    background-color: rgba($color: $background, $alpha: 0);
+    border-radius: $corners;
+    margin: 1px 0px;
 }
 
 
 check {
-	border-radius: $corners;
-	min-width: 13px;
-	min-height: 13px;
-	background: rgba(255, 255, 255, 0.2);
-	margin-right: 0.5rem;
+    border-radius: $corners;
+    min-width: 13px;
+    min-height: 13px;
+    background: rgba(255, 255, 255, 0.2);
+    margin-right: 0.5rem;
 }
 
 check:checked {
-	background: $accent;
-	box-shadow: inset 0px 4px 4px -3px rgba(0, 0, 0, 0.5);
+    background: $accent;
+    box-shadow: inset 0px 4px 4px -3px rgba(0, 0, 0, 0.5);
 }
 
 arrow.right {
-	border-top: 7px solid transparent;
-	border-bottom: 7px solid transparent;
-	border-left: 7px solid $accent;
+    border-top: 7px solid transparent;
+    border-bottom: 7px solid transparent;
+    border-left: 7px solid $accent;
 }
 
 arrow.left {
-	border-top: 7px solid transparent;
-	border-bottom: 7px solid transparent;
+    border-top: 7px solid transparent;
+    border-bottom: 7px solid transparent;
 
-	border-right: 7px solid $accent;
+    border-right: 7px solid $accent;
 }
 
 menu {
-	background: $black;
-	border-radius: $corners;
-	padding: 5px;
-	font-size: 15px;
-	font-weight: 600;
+    background: $black;
+    border-radius: $corners;
+    padding: 5px;
+    font-size: 15px;
+    font-weight: 600;
 }
 
 menu>menuitem {
-	padding: 5px 10px 5px 10px;
-	border-radius: $corners;
-	background: transparent;
-	margin: 2px;
+    padding: 5px 10px 5px 10px;
+    border-radius: $corners;
+    background: transparent;
+    margin: 2px;
 }
 
 menu>menuitem:hover {
-	background: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.1);
 }
 
 menu>separator {
-	background-color: $gray3;
+    background-color: $gray3;
 }
 
 menu>menuitem label:disabled {
-	color: $gray2;
+    color: $gray2;
 }
 
 menu>menuitem check:checked~label {
-	color: $accent;
+    color: $accent;
 }
 
 menubar>menuitem {
-	margin-left: 0.6rem;
+    margin-left: 0.6rem;
 }
 
 
 menuitem {
-	padding: 0px 0px 8px 0px;
+    padding: 0px 0px 8px 0px;
 }
 
 
 
 .bar-workspace {
-	font-family: $nerdfont;
-	font-weight: bold;
-	color: $black;
-	background-color: $black;
-	border-radius: $corners;
-	margin: 3px;
-	padding: 10px 16px;
+    font-family: $nerdfont;
+    font-weight: bold;
+    color: $black;
+    background-color: $black;
+    border-radius: $corners;
+    margin: 3px;
+    padding: 10px 16px;
 }
 
-.empty, .occupied, .current {
-	margin: 13px 0px;
-	font-size: 10px;
+.bar-layer {
+    font-family: $nerdfont;
+    font-weight: bold;
+    color: $accent;
+    background-color: $black;
+    border-radius: $corners;
+    margin: 3px;
+    padding: 8px 0;
+}
+
+.empty,
+.occupied,
+.current {
+    margin: 13px 0px;
+    font-size: 10px;
 }
 
 .empty {
-	background-color: $gray3;
-	border-radius: 20px;
+    background-color: $gray3;
+    border-radius: 20px;
 }
 
 .occupied {
-	background-color: $text;
-	border-radius: 20px;
+    background-color: $text;
+    border-radius: 20px;
 }
 
 .current {
-	background-color: $accent;
-	margin: 0px;
-	padding: 18px 0px;
-	border-radius: 10px;
+    background-color: $accent;
+    margin: 0px;
+    padding: 18px 0px;
+    border-radius: 10px;
 }
 
 .bar-control {
-	font-family: $font;
-	font-weight: bold;
-	font-size: 25px;
-	padding: 10px 0px 0px 0px;
-	background-color: $black;
-	border-radius: $corners;
-	margin: 3px;
+    font-family: $font;
+    font-weight: bold;
+    font-size: 25px;
+    padding: 10px 0px 0px 0px;
+    background-color: $black;
+    border-radius: $corners;
+    margin: 3px;
 }
 
 .bar-mic {
-	color: $accent;
-	padding: 4px;
+    color: $accent;
+    padding: 4px;
 }
 
 .bar-battery {
-	font-weight: bold;
-	font-family: $font;
-	font-size: 12px;
-	padding: 8px;
-	// padding: 12px 6px 9px 6px;
+    font-weight: bold;
+    font-family: $font;
+    font-size: 12px;
+    padding: 8px;
+    // padding: 12px 6px 9px 6px;
 
 }
 
 
 .bar-time {
-	font-family: $font;
-	font-weight: bold;
-	font-size: 20px;
-	background-color: $black;
-	color: $white;
-	margin: 5px;
+    font-family: $font;
+    font-weight: bold;
+    font-size: 20px;
+    background-color: $black;
+    color: $white;
+    margin: 5px;
 }
 
 .bar_bottom {
-	border-radius: $corners;
-	background-color: $black;
-	margin: 3px;
-	padding: 4px 0px;
+    border-radius: $corners;
+    background-color: $black;
+    margin: 3px;
+    padding: 4px 0px;
 }
 
 
 .bar-tray {
-	color: $white;
-	margin: 0px 0px 8px 0px;
-	font-size: 15px;
-	font-weight: 500;
+    color: $white;
+    margin: 0px 0px 8px 0px;
+    font-size: 15px;
+    font-weight: 500;
 }
 
 .bar-button-logout-menu {
-	color: $accent2;
-	font-size: 23px;
-	font-family: $nerdfont;
+    color: $accent2;
+    font-size: 23px;
+    font-family: $nerdfont;
 }

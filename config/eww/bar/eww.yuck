@@ -11,8 +11,8 @@
 		  :class "workspaces-widget"
 	(box :space-evenly false :orientation "v" :class "bar-workspace"
 		(for workspace in workspaces
-			(eventbox :onclick "hyprctl dispatch workspace ${workspace.id}"
-				(box :class "${workspace.id == current_workspace ? "current" : ""} ${workspace.windows > 0 ? "occupied" : "empty"}"
+			(eventbox :onclick "bash ~/.config/eww/bar/scripts/workspaces change-to ${workspace.id}"
+				(box :class "${workspace.id == current_workspace || workspace.idh == current_workspace ? "current" : ""} ${workspace.windows > 0 ? "occupied" : "empty"}"
 					(label :text "${show_no_of_windows && workspace.windows > 0 ? workspace.windows : ""}")
 					)
 				)
@@ -20,6 +20,11 @@
 		)
 	)
 )
+
+(deflisten curr_layer :initial "main" "keyd listen")
+(defwidget layer []
+	(label :text "${substring(curr_layer, 0, 1) == '-' ? '' : substring(curr_layer, 1, 1)}"
+		   :class "bar-layer"))
 
 (defwidget tray []
 	(systray :orientation "v"
@@ -54,7 +59,7 @@
 				   :tooltip "${ batteryDuration }"
 				   :show_truncated false
 				   :wrap false
-				   :text { battery == "100" ? "" : battery }))))
+				   :text { battery == "100" ? "" : battery }))))
 
 
 (defwidget control []
@@ -133,6 +138,7 @@
 		 :space-evenly "false"
 		 :valign "end"
 		 :spacing 5
+		(layer)
 		(control)
 		(bottom)))
 
