@@ -72,3 +72,13 @@ depends = []
 depends = []
 [converse.files]
 "config/converse/style.css" = { target = "~/.config/converse/style.css", type = "symbolic"  }
+
+[niri]
+depends = []
+[niri.files]
+"config/niri/" = { target = "~/.config/niri/", type = "symbolic" }
+
+[dms]
+depends = []
+[dms.files]
+"config/dms/" = { target = "~/.config/DankMaterialShell/", type = "symbolic" }

@@ -12,7 +12,7 @@
 	(box :space-evenly false :orientation "v" :class "bar-workspace"
 		(for workspace in workspaces
 			(eventbox :onclick "bash ~/.config/eww/bar/scripts/workspaces change-to ${workspace.id}"
-				(box :class "${workspace.id == current_workspace || workspace.idh == current_workspace ? "current" : ""} ${workspace.windows > 0 ? "occupied" : "empty"}"
+				(box :class "${workspace.id == current_workspace ? "current" : ""} ${workspace.windows > 0 ? "occupied" : "empty"}"
 					(label :text "${show_no_of_windows && workspace.windows > 0 ? workspace.windows : ""}")
 					)
 				)

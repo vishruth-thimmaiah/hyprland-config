@@ -46,7 +46,7 @@ hypr_change_workspace() {
 # ----
 
 niri_get_workspaces() {
-	niri msg --json event-stream | stdbuf -oL jq -c "if .WorkspacesChanged != null then [.WorkspacesChanged.workspaces[] | {id: .idx, idh: .id, windows: .active_window_id // 0}] else empty end | sort_by(.id)"
+	niri msg --json event-stream | stdbuf -oL jq -c "if .WorkspacesChanged != null then [.WorkspacesChanged.workspaces[] | {id: .id, idx: .idx, windows: .active_window_id // 0}] else empty end | sort_by(.idx)"
 }
 
 niri_get_active_workspace() {
